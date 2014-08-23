@@ -66,9 +66,11 @@
 $('#random').click(function(){
 
     
-    
-    if( $('#budget').val() < 4 || isNaN($('#budget').val()) ){
-        $('#show').html('Error');
+    if( isNaN($('#budget').val()) ){
+        $('#show').html('<div class="fooditem">Enter a Valid input or Get Lost</div>');
+    }
+    else if( $('#budget').val() < 4 ){
+        $('#show').html('<div class="fooditem">You should probably go to mess</div>');
     }
     else if( $('#budget').val() < 50 ){
         selectrandomfood(1);
@@ -96,14 +98,17 @@ function selectrandomfood(n){
     
     var total = 0;
     var text = '';
+    var happnd = [];
     
     for( var i = 0 ; i < n; i++){
         
         var j = Math.floor(Math.random() * menu.length);
-        if(i == j || menu[j].category == 'Cakes/Pastry' || menu[j].category == 'Ice Cream' ){
+        
+        if( happnd.indexOf(j) < -1 || menu[j].category == 'Cakes/Pastry' || menu[j].category == 'Ice Cream' ){
             i--;
             continue;
         }
+        happnd.push(j);
         text = text+'<div class="fooditem"><span class="name">'+menu[j].name+'</span><span class="cost">'+menu[j].cost+' Rs</span></div>';
        
         total += menu[j].cost;
