@@ -1,0 +1,477 @@
+var menu = [
+    {
+        'category':'Special Eco Meal',
+        'name':'Deluxe Thali',
+        'description':'',
+        'cost':95
+    },
+    {
+        'category':'Special Eco Meal',
+        'name':'Chhole chawal',
+        'description':'',
+        'cost':51
+    },
+    {
+        'category':'Special Eco Meal',
+        'name':'Rajma Chawal',
+        'description':'',
+        'cost':51
+    },
+    {
+        'category':'Special Eco Meal',
+        'name':'Chhole Bhature',
+        'description':'',
+        'cost':43
+    },
+    {
+        'category':'South Indian',
+        'name':'Plain Dosa',
+        'description':'',
+        'cost':32
+    },
+    {
+        'category':'South Indian',
+        'name':'Masala Dosa',
+        'description':'',
+        'cost':43
+    },
+    {
+        'category':'South Indian',
+        'name':'Rawa Masala Dosa',
+        'description':'',
+        'cost':46
+    },
+    {
+        'category':'South Indian',
+        'name':'Rawa Plain Dosa',
+        'description':'',
+        'cost':38
+    },
+    {
+        'category':'South Indian',
+        'name':'Paneer Dosa',
+        'description':'',
+        'cost':46
+    },
+    {
+        'category':'South Indian',
+        'name':'Onion Rawa Masala Dosa',
+        'description':'',
+        'cost':47
+    },
+    {
+        'category':'South Indian',
+        'name':'Onion Uttapam',
+        'description':'',
+        'cost':43
+    },
+    {
+        'category':'South Indian',
+        'name':'Mixed Uttapam',
+        'description':'',
+        'cost':46
+    },
+    {
+        'category':'South Indian',
+        'name':'Mixed Uttapam',
+        'description':'',
+        'cost':46
+    },
+    {
+        'category':'South Indian',
+        'name':'Samber Idli',
+        'description':'',
+        'cost':28
+    },
+    {
+        'category':'South Indian',
+        'name':'Vada Samber',
+        'description':'',
+        'cost':28
+    },
+    {
+        'category':'Tandoor Se',
+        'name':'Paneer Tikka',
+        'description':'',
+        'cost':47
+    },
+    {
+        'category':'Tandoor Se',
+        'name':'Paneer Stuffed Paratha',
+        'description':'',
+        'cost':44
+    },
+    {
+        'category':'Tandoor Se',
+        'name':'Onion Stuffed Paratha',
+        'description':'',
+        'cost':38
+    },
+    {
+        'category':'Tandoor Se',
+        'name':'Aloo Stuffed Paratha',
+        'description':'',
+        'cost':38
+    },
+    {
+        'category':'Tandoor Se',
+        'name':'Mix Stuffed Paratha',
+        'description':'',
+        'cost':44
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Veg Manchurian(DRY)',
+        'description':'',
+        'cost':55
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Paneer Chilly(DRY)',
+        'description':'',
+        'cost':75
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Chilly Potato',
+        'description':'',
+        'cost':51
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Crispy Vegerable',
+        'description':'',
+        'cost':69
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Hot and Sour Soup',
+        'description':'',
+        'cost':30
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Veg Chowmein',
+        'description':'',
+        'cost':46
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Veg Fried Rice',
+        'description':'',
+        'cost':46
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Veg Manchurian(Gravy)',
+        'description':'',
+        'cost':51
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Paneer Chilly(Gravy)',
+        'description':'',
+        'cost':69
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Veg Burger',
+        'description':'',
+        'cost':28
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Cheese Burger',
+        'description':'',
+        'cost':31
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Veg. Grill Sandwich',
+        'description':'',
+        'cost':36
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Chinese Platter',
+        'description':'',
+        'cost':70
+    },
+    {
+        'category':'Chinese And Continental',
+        'name':'Veg Fried Rice Manchurian(combo)',
+        'description':'',
+        'cost':53
+    },
+    {
+        'category':'Pizzas',
+        'name':'Cheese Pizza',
+        'description':'',
+        'cost':54
+    },
+    {
+        'category':'Pizzas',
+        'name':'Tomato Pizza',
+        'description':'',
+        'cost':58
+    },
+    {
+        'category':'Pizzas',
+        'name':'Mushroom Pizza',
+        'description':'',
+        'cost':58
+    },
+    {
+        'category':'Pizzas',
+        'name':'Chilly paneer Pizza',
+        'description':'',
+        'cost':60
+    },
+    {
+        'category':'Pizzas',
+        'name':'Onion Capsicum Tomato Pizza',
+        'description':'',
+        'cost':63
+    },
+    { 
+        'category':'Chat and Snaks', 
+        'name':'Dahi Bhalla', 
+        'description':'', 
+        'cost': 25
+    },
+    { 
+        'category':'Chat and Snaks', 
+        'name':'Paapdi Chaat', 
+        'description':'', 
+        'cost': 25
+    },
+    { 
+        'category':'Chat and Snaks', 
+        'name':'Lachha Tokri', 
+        'description':'', 
+        'cost': 30
+    },
+    { 
+        'category':'Chat and Snaks', 
+        'name':'Raj Kachori', 
+        'description':'', 
+        'cost': 30
+    },
+    { 
+        'category':'Chat and Snaks', 
+        'name':'Pav Bhaji', 
+        'description':'', 
+        'cost': 35
+    },
+    { 
+        'category':'Chat and Snaks', 
+        'name':'Aloo Tikki', 
+        'description':' (2 pieces)', 
+        'cost': 40
+    }, 
+    { 
+        'category':'Chat and Snaks', 
+        'name':'Samosa', 
+        'description':'', 
+        'cost': 4
+    },
+    { 
+        'category':'Chat and Snaks', 
+        'name':'Kachori', 
+        'description':'', 
+        'cost': 4
+    },
+    { 
+        'category':'Chat and Snaks', 
+        'name':'Pyaaj Kachori', 
+        'description':'', 
+        'cost': 6
+    },
+    { 
+        'category':'Chat and Snaks', 
+        'name':'Plain Dhokla', 
+        'description':'', 
+        'cost': 9
+    },
+    { 
+        'category':'Ice Cream', 
+        'name':'Vanilla', 
+        'description':'', 
+        'cost': 15
+    },
+    { 
+        'category':'Ice Cream', 
+        'name':'Chocolate/Pineapple', 
+        'description':'', 
+        'cost': 20
+    },
+    { 
+        'category':'Ice Cream', 
+        'name':'Kesar Pista/Butter Scotch', 
+        'description':'', 
+        'cost': 20
+    },
+    { 
+        'category':'Ice Cream', 
+        'name':'Choco Chips', 
+        'description':'', 
+        'cost': 20
+    },
+    { 
+        'category':'Ice Cream', 
+        'name':'Tutty Fruity', 
+        'description':'', 
+        'cost': 20
+    },
+    { 
+        'category':'Ice Cream', 
+        'name':'Black Current', 
+        'description':'', 
+        'cost': 20
+    },
+    { 
+        'category':'Ice Cream', 
+        'name':'Mango', 
+        'description':'', 
+        'cost': 20
+    },
+    { 
+        'category':'Ice Cream', 
+        'name':'Tea', 
+        'description':'', 
+        'cost': 6
+    },
+    { 
+        'category':'Ice Cream', 
+        'name':'Coffee', 
+        'description':'', 
+        'cost': 12
+    },
+    { 
+        'category':'Ice Cream', 
+        'name':'Lassi', 
+        'description':'', 
+        'cost': 23
+    },
+    { 
+        'category':'Ice Cream', 
+        'name':'Pepsi', 
+        'description':'', 
+        'cost': 15
+    },
+    { 
+        'category':'Ice Cream', 
+        'name':'Mineral Water', 
+        'description':'', 
+        'cost': "MRP"
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Fruit Juice', 
+        'description':'', 
+        'cost': 40
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Gulab Jamun', 
+        'description':'', 
+        'cost': 8
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Rasgulla', 
+        'description':'', 
+        'cost': 5
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Cold Coffee', 
+        'description':'', 
+        'cost': 35
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Extra Paav', 
+        'description':'', 
+        'cost': 9
+    },
+    {
+        'category':'Cakes/Pastry', 
+        'name':'Extra Chola', 
+        'description':'', 
+        'cost': 23
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Cold Coffee with Ice Cream', 
+        'description':'', 
+        'cost': 46
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Extra Batura', 
+        'description':'', 
+        'cost': 12
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Extra Roti', 
+        'description':'', 
+        'cost': 9
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Extra Laccha Praatha', 
+        'description':'', 
+        'cost': 16
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Extra Raajma', 
+        'description':'', 
+        'cost': 23
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Extra Naan', 
+        'description':'', 
+        'cost': 20
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Extra Raaita', 
+        'description':'', 
+        'cost': 25
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Mix. Veg.', 
+        'description':'', 
+        'cost': 59
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Daal Maakhni', 
+        'description':'', 
+        'cost': 66
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Shahi Paneer', 
+        'description':'', 
+        'cost': 66
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Extra Paapad', 
+        'description':'', 
+        'cost': 6
+    },
+    { 
+        'category':'Cakes/Pastry', 
+        'name':'Veg. Pulao', 
+        'description':'', 
+        'cost': 25
+    }
+
+]

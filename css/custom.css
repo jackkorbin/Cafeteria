@@ -1,0 +1,134 @@
+@font-face {
+font-family: Gotham Narrow SSm;
+
+src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
+}
+
+.custom{
+   
+    color:#fff;
+    font-family: "Gotham Narrow SSm",sans-serif;
+}
+.main-box{
+    width:400px;
+    background-color: #fff;
+    margin:2em auto;
+    margin-bottom:1em;
+    box-shadow: 0 0 4px 0px #000;
+}
+.overlay{
+    padding:10px;
+    background-color: #1BA39C;
+    font-size: 30px;
+    box-shadow: 0px 1px 2px 00px #000;
+    text-align: center;
+}
+.overlay i{
+    position: relative;
+    letter-spacing: 9px;
+    font-size: 25px;
+    text-shadow: 0 0 1px #000;
+    top: 4px;
+}
+.overlay span{
+    font-weight: bolder;
+    letter-spacing: 2px;
+    font-size: 28px;
+    text-shadow: 0 0 1px #000;
+}
+
+
+.main-content{
+    
+    
+}
+.main-content input{
+    margin:30px auto;
+    height:60px;
+    text-align: center;
+    box-shadow: none;
+    border-radius: 0;
+    background-color:rgba(149, 165, 166,0.2);
+    font-size: 22px;
+    width:80%;
+    
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    
+}
+.main-content input:focus{
+    box-shadow: 0 0 2px 0px #000;
+    background-color:rgba(149, 165, 166,1);
+    color:#fff;
+    border-color: rgba(149, 165, 166,1);
+}
+.main-content input:focus::-webkit-input-placeholder { 
+    color: #ddd; 
+}
+
+.main-content input:focus:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #ddd; 
+}
+.main-content input:focus::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #ddd; 
+}
+.main-content input:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #ddd; 
+}
+
+
+.main-content button{
+    border-radius: 0;
+    box-shadow: 0 0 1px 0px #000;
+    background-color: #C0392B;
+    width:100%;
+    height:80px;
+    font-size: 24px;
+    box-shadow: 0px 0px 2px 00px #000;
+    outline: 0;
+    color:#fff;
+    
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+}
+.main-content button:active{
+    color:#fff;
+    outline: 0;
+    
+}
+.main-content button:focus{
+    color:#fff;
+    outline: 0;
+    
+}
+.main-content button:hover{
+    color:#fff;
+    outline: 0;
+    
+}
+.footer{
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #eee;
+}
+.fooditem {
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+}
+.fooditem .name{
+    
+}
+.fooditem .cost{
+    float: right;
+}
+
+#show{
+    padding:10px;
+    color:black;
+}
+
