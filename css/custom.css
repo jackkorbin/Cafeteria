@@ -10,7 +10,9 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     font-family: "Gotham Narrow SSm",sans-serif;
 }
 .main-box{
-    width:400px;
+    max-width: 400px;
+    width: 30%;
+    min-width: 300px;
     background-color: #fff;
     margin:2em auto;
     margin-bottom:1em;
