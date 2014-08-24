@@ -8,15 +8,18 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
    
     color:#fff;
     font-family: "Gotham Narrow SSm",sans-serif;
+    margin:0;
+    padding:0;
+    width:100%;
 }
 .main-box{
-    max-width: 400px;
-    width: 30%;
-    min-width: 300px;
-    background-color: #fff;
-    margin:2em auto;
-    margin-bottom:1em;
-    box-shadow: 0 0 4px 0px #000;
+    
+    width: 100%;
+    max-width: 500px;
+    
+    background-color: rgba(255,255,255,0.8);
+    margin:0em auto;
+    box-shadow: 0 0 1px 0px #000;
 }
 .overlay{
     padding:10px;
@@ -46,6 +49,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 }
 .main-content input{
     margin:30px auto;
+    margin-bottom: 15px;
     height:60px;
     text-align: center;
     box-shadow: none;
@@ -54,9 +58,10 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     font-size: 22px;
     width:80%;
     
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
+    
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
     
 }
 .main-content input:focus{
@@ -66,7 +71,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     border-color: rgba(149, 165, 166,1);
 }
 .main-content input:focus::-webkit-input-placeholder { 
-    color: #ddd; 
+    color: #ddd;
 }
 
 .main-content input:focus:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
@@ -80,7 +85,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 }
 
 
-.main-content button{
+.generatebtn{
     border-radius: 0;
     box-shadow: 0 0 1px 0px #000;
     background-color: #C0392B;
@@ -95,17 +100,17 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
 }
-.main-content button:active{
+.generatebtn:active{
     color:#fff;
     outline: 0;
     
 }
-.main-content button:focus{
+.generatebtn:focus{
     color:#fff;
     outline: 0;
     
 }
-.main-content button:hover{
+.generatebtn:hover{
     color:#fff;
     outline: 0;
     
@@ -132,5 +137,39 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 #show{
     padding:10px;
     color:black;
+}
+#show .error{
+    text-align: center;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+      
+  }
+  to { 
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: rotate(0deg);
+      
+  }
+  to { 
+    -moz-transform: rotate(360deg);
+  }
+}
+
+.spin{
+    -webkit-animation-name:             rotate; 
+    -webkit-animation-duration:         1s; 
+    -webkit-animation-iteration-count:  infinite;
+    -webkit-transition-timing-function: linear;
+    
+    -moz-animation-name:             rotate; 
+    -moz-animation-duration:         1s; 
+    -moz-animation-iteration-count:  infinite;
+    -moz-transition-timing-function: linear;
 }
 

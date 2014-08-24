@@ -5,7 +5,7 @@
     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Chatpad</title>
+    <title>Cafeteria</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,7 +17,13 @@
     
         <style>
           body{
-            background-color:#22313F;
+/*            background-color:#22313F;*/
+              background:#8ec1da url(img/food2.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            font-weight:normal;
             
           }
       </style>
@@ -34,21 +40,26 @@
                 
             </div>
             <div class="main-content">
-                <input type="text" class="form-control" id="budget" placeholder="Enter your Budget">
+                <input type="text" class="form-control" id="budget" placeholder="Enter Budget">
                 
                 <div id="show">
                     
                    
                 </div>
                 
-                <button class="btn" id="random">Generate Random</button>
             </div>
+                
+                <button class="btn generatebtn" id="random">Generate Random</button>
+                
+            
         
         </div>
         
+<!--
         <div class="footer">
             Created by <span>Jack korbin</span>
         </div>
+-->
         
     </div>
 
@@ -64,13 +75,25 @@
 
     
 $('#random').click(function(){
-
     
+    $('.generatebtn').html('<i class="glyphicon glyphicon-refresh spin"></i>');
+
+    setTimeout(function(){
+        valuechecker();
+    },500);
+    
+    
+});
+    
+    
+function valuechecker(){
     if( isNaN($('#budget').val()) ){
-        $('#show').html('<div class="fooditem">Enter a Valid input or Get Lost</div>');
+        $('#show').html('<div class="error">Enter a Valid input or Get Lost.</div>');
+        $('.generatebtn').html('Generate Random');
     }
     else if( $('#budget').val() < 4 ){
-        $('#show').html('<div class="fooditem">You should probably go to mess</div>');
+        $('#show').html('<div class="error">You should probably go to mess.</div>');
+        $('.generatebtn').html('Generate Random');
     }
     else if( $('#budget').val() < 50 ){
         selectrandomfood(1);
@@ -84,11 +107,7 @@ $('#random').click(function(){
     else{
         selectrandomfood(4);
     }
-    
-    
-    
-    
-});
+}
     
     
     
@@ -104,7 +123,7 @@ function selectrandomfood(n){
         
         var j = Math.floor(Math.random() * menu.length);
         
-        if( happnd.indexOf(j) < -1 || menu[j].category == 'Cakes/Pastry' || menu[j].category == 'Ice Cream' ){
+        if( happnd.indexOf(j) != -1 || menu[j].category == 'Cakes/Pastry' || menu[j].category == 'Ice Cream' ){
             i--;
             continue;
         }
@@ -113,18 +132,27 @@ function selectrandomfood(n){
        
         total += menu[j].cost;
     }
-    if( total > budget ){
-        console.log(0);
+    if( total > budget  ){
+
         $('#show').html('');
         selectrandomfood(n);
         return 0;
     }
     else{
         
-        
-        
-        $('#show').append(text);
-        $('#show').append('<div class="fooditem"><span class="name">Total</span><span class="cost">'+total+' Rs</span></div>');
+        if( budget < 250 && total < budget/2 && budget > 50 ){
+            console.log('here');
+            $('#show').html('');
+            selectrandomfood(n);
+            return 0;
+        }
+        else{
+            $('#show').hide(200);
+            $('#show').append(text);
+            $('#show').append('<div class="fooditem"><span class="name">Total</span><span class="cost">'+total+' Rs</span></div>');
+            $('#show').show(200);
+            $('.generatebtn').html('Generate Again');
+        }
     }
 }
 
