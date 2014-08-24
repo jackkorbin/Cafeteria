@@ -139,7 +139,7 @@ var menu = [
     },
     {
         'category':'Chinese And Continental',
-        'name':'Crispy Vegerable',
+        'name':'Crispy Vegetable',
         'description':'',
         'cost':69
     },
