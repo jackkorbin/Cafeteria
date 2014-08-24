@@ -17,16 +17,17 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     width: 100%;
     max-width: 500px;
     
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(255,255,255,1);
     margin:0em auto;
     box-shadow: 0 0 1px 0px #000;
 }
 .overlay{
     padding:10px;
-    background-color: #1BA39C;
+    background-color: #22313F;
     font-size: 30px;
-    box-shadow: 0px 1px 2px 00px #000;
+/*    box-shadow: 0px 1px 2px 00px #000;*/
     text-align: center;
+    border-bottom: 1px solid #fff;
 }
 .overlay i{
     position: relative;
@@ -66,9 +67,9 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 }
 .main-content input:focus{
     box-shadow: 0 0 2px 0px #000;
-    background-color:rgba(149, 165, 166,0.7);
+    background-color:rgba(149, 165, 166,1);
     color:#fff;
-    border-color: rgba(149, 165, 166,0.4);
+    border-color: rgba(149, 165, 166,1);
 }
 .main-content input:focus::-webkit-input-placeholder { 
     color: #ddd;
@@ -173,3 +174,52 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     -moz-transition-timing-function: linear;
 }
 
+
+.custom-tab-ul{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+    
+}
+.custom-tab-ul li:first-child{ 
+    border-right:1px solid #eee;
+}
+.custom-list{
+    width:50%;
+    display: -moz-inline-grid;
+    float: left;
+    background-color: #336E7B;
+    
+}
+.custom-list.active a{
+    background-color: #eee;
+    color:black;
+}
+.custom-list a{
+    color:#fff;
+}
+.custom-list a i{
+    letter-spacing: 10px;
+}
+#show-item{
+    padding:10px;
+    color:black;
+}
+.main-content.menu input{
+    height: 40px;
+    width: 44%;
+    margin:0px;
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    font-size: 18px;
+}
+.inputs-menu{
+    
+    text-align: center;
+    padding: 15px 0;
+}
+#show-menu{
+    padding:10px;
+    display: none;
+    color:black;
+}

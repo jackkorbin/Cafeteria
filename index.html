@@ -31,25 +31,63 @@
 </head>
 <body>
 
-    <div class="custom container">
+    <div class="custom">
+        
+        
         
         <div class="main-box">
             <div class="overlay">
                 <i class="glyphicon glyphicon-cutlery"></i>
                 <span> Easy Cafe </span>
-                
             </div>
-            <div class="main-content">
-                <input type="text" class="form-control" id="budget" placeholder="Enter Budget">
+            
+<!--
+            <ul class="nav nav-tabs nav-justified tab-ul" >
+              <li class="active"><a class="" href="#menu" data-toggle="tab">Menu</a></li>
+              <li class=""><a class="" href="#randomfood" data-toggle="tab">Random</a></li>
+            </ul>
+-->
+            <ul class="nav navbar-nav custom-tab-ul" id="myTab">
+                <li class="custom-list active"><a href="#menu" data-toggle="tab" class=""><i class="glyphicon glyphicon-heart"></i><span>Cafe Menu</span></a></li>
+                <li class="custom-list"><a href="#randomfood" data-toggle="tab" class=""><i class="glyphicon glyphicon-fire"></i><span>Random Food</span></a></li>
+            </ul>
+            
+             <div class="tab-content settings">
                 
-                <div id="show">
+                <div class="fade in tab-pane active" id="menu"><!-- Tab 1 -->
                     
+                    <div class="main-content menu">
+                        <div class="inputs-menu">
+                            <input type="text" class="form-control" id="name-menu" placeholder="Name">
+                            <input type="text" class="form-control" id="budget-menu" placeholder="Budget">
+                        </div>
+                        
+                        <div id="show-menu">
+                            
+                            
+                        </div>
+                    </div>
+                </div> <!-- End of tab 1 -->
+            
+                <div class="fade in tab-pane" id="randomfood"><!-- Tab 2 -->
+                    <div class="main-content">
+                        
+                        <input type="text" class="form-control" id="budget" placeholder="Enter Budget">
+                        
+                        <div id="show">
+                        </div>
+                        
+                    </div>
+                
+                    <button class="btn generatebtn" id="random">Generate Food</button>
                    
-                </div>
-                
+                </div> <!-- End of tab 2 -->
             </div>
-                
-                <button class="btn generatebtn" id="random">Generate Food</button>
+            
+            
+            
+            
+            
                 
             
         
@@ -76,7 +114,57 @@
     
 $(document).ready(function(){
     //$('#budget').focus();
+    $('#myTab a').click(function () {
+      $(this).tab('show');
+    });
+    
+    fetchmenu();
+    
+    $('#name-menu, #budget-menu').keyup(sortmenu);
 });
+    
+//FETCH AND SORT MENU -->
+    
+function sortmenu(){
+    
+    var name = ($('#name-menu').val()).toLowerCase();
+    var budget = $('#budget-menu').val();
+    var text = '';
+    
+    for( i=0; i<menu.length;i++ ){
+        
+        if( (menu[i].cost <= budget || budget == '') && ( (menu[i].name.toLowerCase()).indexOf(name) != -1 || name == '' ) ){
+            text += '<div class="fooditem"><span class="name">'+menu[i].name+'</span><span class="cost">'+menu[i].cost+' Rs</span></div>';
+        }
+    }
+    
+    if( text != '' ){
+        $('#show-menu').html(text);
+    }
+    else{
+        $('#show-menu').html('<div class="fooditem"><span class="name">No items to show</span></div>');
+    }
+}
+    
+    
+function fetchmenu(){
+    
+    var text = '';
+    for( i=0; i < menu.length; i++ ){
+        
+        text += '<div class="fooditem"><span class="name">'+menu[i].name+'</span><span class="cost">'+menu[i].cost+' Rs</span></div>';
+    }
+    
+    $('#show-menu').html(text);
+    $('#show-menu').show(200);
+    
+}
+    
+    
+    
+    
+    
+//RANDOM GENERATOR FUNCTIONS --> 
     
 $('#random').click(function(){
     
