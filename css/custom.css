@@ -250,7 +250,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 }
 .bottom-tab-button{
     padding:15px;
-    width:33.333333%;
+    width:34%;
     float:left;
 }
 .bottom-tab-button:hover{
@@ -283,7 +283,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     height:300px;
     position: relative;
     background-color: rgba(255,255,255,1);
-    left:500px;
+    left:0px;
     overflow-y: scroll;
     border-radius:8px;
     border:2px solid black;
@@ -303,7 +303,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     border-radius: 1px;
     border-bottom: 2px solid #81CFE0;
     position: relative;
-    top: -5px;
+    top: -2px;
     z-index: 0;
     
 }

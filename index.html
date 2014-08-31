@@ -253,7 +253,7 @@ $(document).on("click", ".confirm", function() {
     
     if( togglebool == 1 ){
         $('.selected-box-cont').show(500);
-        $('.selected-box').animate({'left':'0px'},400);
+        //$('.selected-box').animate({'left':'0px'},400);
         $('.confirm').html('<i class="glyphicon glyphicon-refresh spin"></i>');
         setTimeout(function(){
             $('.confirm').html('Back');
@@ -262,7 +262,7 @@ $(document).on("click", ".confirm", function() {
     }
     else{
         $('.selected-box-cont').hide(300);
-        $('.selected-box').animate({'left':'500px'},400);
+        //$('.selected-box').animate({'left':'500px'},400);
         $('.confirm').html('Confirm');
         togglebool = 1;
     }
