@@ -47,15 +47,17 @@
               <li class=""><a class="" href="#randomfood" data-toggle="tab">Random</a></li>
             </ul>
 -->
+<!--
             <ul class="nav navbar-nav custom-tab-ul hidden-xs" id="myTab">
                 <li class="custom-list active"><a href="#menu" data-toggle="tab" class=""><i class="glyphicon glyphicon-heart"></i><span>Cafe Menu</span></a></li>
-                <li class="custom-list"><a href="#randomfood" data-toggle="tab" class=""><i class="glyphicon glyphicon-fire"></i><span>Random Food</span></a></li>
+                <li class="custom-list"><a href="#what" data-toggle="tab" class=""><i class="glyphicon glyphicon-fire"></i><span>Selected Food</span></a></li>
             </ul>
             
             <ul class="nav navbar-nav custom-tab-ul visible-xs" id="myTab">
                 <li class="custom-list active"><a href="#menu" data-toggle="tab" class=""><i class="glyphicon glyphicon-heart"></i><span>Menu</span></a></li>
-                <li class="custom-list"><a href="#randomfood" data-toggle="tab" class=""><i class="glyphicon glyphicon-fire"></i><span>Random</span></a></li>
+                <li class="custom-list"><a href="#what" data-toggle="tab" class=""><i class="glyphicon glyphicon-fire"></i><span>Selected</span></a></li>
             </ul>
+-->
             
              <div class="tab-content settings">
                 
@@ -67,14 +69,71 @@
                             <input type="text" class="form-control" id="budget-menu" placeholder="Budget">
                         </div>
                         
-                        <div id="show-menu">
-                            
-                            
+                        <div class="selected-box-cont"><!-- Tab 2 -->
+                            <div class="selected-box" id="what">
+                                
+                                <div class="fooditem">
+                                    <span class="name" id="name">
+                                        Rajma chawal
+                                    </span>
+                                    <span class="">
+                                         x 4 
+                                    </span>
+                                    <span class="cost" id="cost">
+                                        78 Rs
+                                    </span>
+                                </div>
+                                
+                                <div class="fooditem">
+                                    <span class="name" id="name">
+                                        Paw Bhaji
+                                    </span>
+                                    <span class="">
+                                         x 1 
+                                    </span>
+                                    <span class="cost" id="cost">
+                                        35 Rs
+                                    </span>
+                                </div>
+                                
+                                <div class="fooditem">
+                                    <span class="name" id="name">
+                                        paneer pizza
+                                    </span>
+                                    <span class="">
+                                         x 4 
+                                    </span>
+                                    <span class="cost" id="cost">
+                                        210 Rs
+                                    </span>
+                                </div>
+                                
+                                
+                            </div>   
                         </div>
+                        
+                        <div id="show-menu">                 
+<!--
+                            <div class="fooditem">
+                                <span class="name" id="name">
+                                    Rajma chawal
+                                </span>
+                                <select class="quan form-control" id="quan"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option></select>
+                                <span class="cost" id="cost">
+                                    78
+                                </span>
+                            </div>
+--> 
+                            <i class="glyphicon glyphicon-refresh spin"></i>
+                        </div>
+                        
+                        
+                        
                     </div>
                 </div> <!-- End of tab 1 -->
             
-                <div class="fade in tab-pane" id="randomfood"><!-- Tab 2 -->
+<!-- // RANDOM FOOD TAB
+                <div class="fade in tab-pane" id="randomfood">
                     <div class="main-content">
                         
                         <input type="text" class="form-control" id="budget" placeholder="Enter Budget">
@@ -86,23 +145,39 @@
                 
                     <button class="btn generatebtn" id="random">Generate Food</button>
                    
-                </div> <!-- End of tab 2 -->
-            </div>
-            
-            
-            
-            
-            
+                </div> 
+-->
+                 
+                
+                 
                 
             
         
         </div>
+
         
 <!--
         <div class="footer">
             Created by <span>Jack korbin</span>
         </div>
 -->
+            
+        <div id="totalcost" class="total-cost">
+            <div class="clear bottom-tab-button">
+                Clear all
+            </div>
+            <div class="total bottom-tab-button">
+                Total 0 Rs.
+            </div>
+            <div class="confirm bottom-tab-button">
+                Confirm
+            </div>
+        </div>
+            
+        
+    </div>
+        
+        
         
     </div>
 
@@ -115,6 +190,8 @@
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="menu.json"></script>
 <script>
+    
+var showmenuheight = parseInt($(document).innerHeight() - 180);
 
     
 $(document).ready(function(){
@@ -126,29 +203,92 @@ $(document).ready(function(){
     fetchmenu();
     
     $('#name-menu, #budget-menu').keyup(sortmenu);
+    
+    
+    
 });
     
-//FETCH AND SORT MENU -->
+$(window).load(function(){
     
+    $('.clear').click(function(){
+        fetchmenu();
+        $('.total.bottom-tab-button').html("Total 0 Rs.");
+    });
+    
+});
+    
+/// UPDATE TOTAL : -->
+    
+$(document).on("click", ".quan", function() {
+    foods = $('#show-menu div .name');
+    quantity = $('#show-menu div .quan');
+    costs = $('#show-menu div .cost');
+    
+    var total = 0;
+    var texts = '';
+    
+    for (var i=0; i < foods.length; i++) {
+        if (parseInt(quantity[i].value) > 0) {
+            costi = parseInt(costs[i].innerHTML);
+            
+            
+            texts += foods[i].innerHTML + "(" + costi + ") * " + parseInt(quantity[i].value) + " = Rs. " + (costi * parseInt(quantity[i].value)) + "<br />";
+            
+            
+            total += (costi * parseInt(quantity[i].value)); 
+            
+        }
+        
+    }
+    
+    texts += "TOTAL : Rs. " + total;
+    
+    $('.total.bottom-tab-button').html(total+" Rs." );
+    $('#what').html(texts);
+});
+    
+var togglebool = 1;    
+$(document).on("click", ".confirm", function() {
+    
+    
+    if( togglebool == 1 ){
+        $('.selected-box-cont').show(500);
+        $('.selected-box').animate({'left':'0px'},400);
+        $('.confirm').html('<i class="glyphicon glyphicon-refresh spin"></i>');
+        setTimeout(function(){
+            $('.confirm').html('Back');
+        },300);
+        togglebool = 0;
+    }
+    else{
+        $('.selected-box-cont').hide(300);
+        $('.selected-box').animate({'left':'500px'},400);
+        $('.confirm').html('Confirm');
+        togglebool = 1;
+    }
+});
+    
+    
+//FETCH AND SORT MENU -->
+
 function sortmenu(){
     
     var name = ($('#name-menu').val()).toLowerCase();
     var budget = $('#budget-menu').val();
-    var text = '';
+    
+    
+    //$('.fooditem').css('display','none');
     
     for( i=0; i<menu.length;i++ ){
+        $('#fooditem'+i).hide(200);
         
         if( (menu[i].cost <= budget || budget == '') && ( (menu[i].name.toLowerCase()).indexOf(name) != -1 || name == '' ) ){
-            text += '<div class="fooditem"><span class="name">'+menu[i].name+'</span><span class="cost">'+menu[i].cost+' Rs</span></div>';
+            //text += '<div class="fooditem"><span class="name">'+menu[i].name+'</span><span class="cost">'+menu[i].cost+' Rs</span></div>';
+            $('#fooditem'+i).show(200);
+            
         }
     }
     
-    if( text != '' ){
-        $('#show-menu').html(text);
-    }
-    else{
-        $('#show-menu').html('<div class="fooditem"><span class="name">No items to show</span></div>');
-    }
 }
     
     
@@ -157,101 +297,115 @@ function fetchmenu(){
     var text = '';
     for( i=0; i < menu.length; i++ ){
         
-        text += '<div class="fooditem"><span class="name">'+menu[i].name+'</span><span class="cost">'+menu[i].cost+' Rs</span></div>';
+        text += '<div class="fooditem" id="fooditem'+i+'><span class="name" id="name">' + menu[i].name + '</span>' +  options() + '<span class="cost" id="cost">'+ menu[i].cost +' Rs. </span></div>';
     }
+    
+    
+    var j = $('.main-content').width();
+    //$('.selected-box').css('left','calc( 50% - '+ j/2 +'px )');
+    
     
     $('#show-menu').html(text);
-    $('#show-menu').show(200);
+    
+    $('#show-menu').css('height',showmenuheight+'px');
+    $('.selected-box').css('height',showmenuheight - 50+'px');
+    
+    
+    $('#show-menu').show(500);
+    
     
 }
-    
-    
-    
-    
-    
-//RANDOM GENERATOR FUNCTIONS --> 
-    
-$('#random').click(function(){
-    
-    $('.generatebtn').html('<i class="glyphicon glyphicon-refresh spin"></i>');
 
-    setTimeout(function(){
-        valuechecker();
-    },500);
-    
-    
-});
-    
-    
-function valuechecker(){
-    if( isNaN($('#budget').val()) ){
-        $('#show').html('<div class="error">Enter a Valid input or Get Lost.</div>');
-        $('.generatebtn').html('Generate Random');
-    }
-    else if( $('#budget').val() < 4 ){
-        $('#show').html('<div class="error">You should probably go to mess.</div>');
-        $('.generatebtn').html('Generate Random');
-    }
-    else if( $('#budget').val() < 50 ){
-        selectrandomfood(1);
-    }
-    else if( $('#budget').val() < 120 ){
-        selectrandomfood(2);
-    }
-    else if( $('#budget').val() < 200 ){
-        selectrandomfood(3);
-    }
-    else{
-        selectrandomfood(4);
-    }
+function options() {
+    return '<select class="quan" id="quan"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option></select>';
 }
     
     
     
-function selectrandomfood(n){
-    $('#show').html('');
-    var budget = $('#budget').val();
     
-    var total = 0;
-    var text = '';
-    var happnd = [];
-    
-    for( var i = 0 ; i < n; i++){
-        
-        var j = Math.floor(Math.random() * menu.length);
-        
-        if( happnd.indexOf(j) != -1 || menu[j].category == 'Cakes/Pastry' || menu[j].category == 'Ice Cream' ){
-            i--;
-            continue;
-        }
-        happnd.push(j);
-        text = text+'<div class="fooditem"><span class="name">'+menu[j].name+'</span><span class="cost">'+menu[j].cost+' Rs</span></div>';
-       
-        total += menu[j].cost;
-    }
-    if( total > budget  ){
-
-        $('#show').html('');
-        selectrandomfood(n);
-        return 0;
-    }
-    else{
-        
-        if( budget < 250 && total < budget/2 && budget > 50 ){
-            console.log('here');
-            $('#show').html('');
-            selectrandomfood(n);
-            return 0;
-        }
-        else{
-            $('#show').hide(200);
-            $('#show').append(text);
-            $('#show').append('<div class="fooditem"><span class="name">Total</span><span class="cost">'+total+' Rs</span></div>');
-            $('#show').show(200);
-            $('.generatebtn').html('Generate Again');
-        }
-    }
-}
+////RANDOM GENERATOR FUNCTIONS --> 
+//    
+//$('#random').click(function(){
+//    
+//    $('.generatebtn').html('<i class="glyphicon glyphicon-refresh spin"></i>');
+//
+//    setTimeout(function(){
+//        valuechecker();
+//    },500);
+//    
+//    
+//});
+//    
+//    
+//function valuechecker(){
+//    if( isNaN($('#budget').val()) ){
+//        $('#show').html('<div class="error">Enter a Valid input or Get Lost.</div>');
+//        $('.generatebtn').html('Generate Random');
+//    }
+//    else if( $('#budget').val() < 4 ){
+//        $('#show').html('<div class="error">You should probably go to mess.</div>');
+//        $('.generatebtn').html('Generate Random');
+//    }
+//    else if( $('#budget').val() < 50 ){
+//        selectrandomfood(1);
+//    }
+//    else if( $('#budget').val() < 120 ){
+//        selectrandomfood(2);
+//    }
+//    else if( $('#budget').val() < 200 ){
+//        selectrandomfood(3);
+//    }
+//    else{
+//        selectrandomfood(4);
+//    }
+//}
+//    
+//    
+//    
+//function selectrandomfood(n){
+//    $('#show').html('');
+//    var budget = $('#budget').val();
+//    
+//    var total = 0;
+//    var text = '';
+//    var happnd = [];
+//    
+//    for( var i = 0 ; i < n; i++){
+//        
+//        var j = Math.floor(Math.random() * menu.length);
+//        
+//        if( happnd.indexOf(j) != -1 || menu[j].category == 'Cakes/Pastry' || menu[j].category == 'Ice Cream' ){
+//            i--;
+//            continue;
+//        }
+//        happnd.push(j);
+//        text = text+'<div class="fooditem"><span class="name">'+menu[j].name+'</span><span class="cost">'+menu[j].cost+' Rs</span></div>';
+//       
+//        total += menu[j].cost;
+//    }
+//    if( total > budget  ){
+//
+//        $('#show').html('');
+//        selectrandomfood(n);
+//        return 0;
+//    }
+//    else{
+//        
+//        if( budget < 250 && total < budget/2 && budget > 50 ){
+//            console.log('here');
+//            $('#show').html('');
+//            selectrandomfood(n);
+//            return 0;
+//        }
+//        else{
+//            $('#show').hide(200);
+//            $('#show').append(text);
+//            $('#show').append('<div class="fooditem"><span class="name">Total</span><span class="cost">'+total+' Rs</span></div>');
+//            $('#show').show(200);
+//            $('.generatebtn').html('Generate Again');
+//        }
+//    }
+//}
 
     
 

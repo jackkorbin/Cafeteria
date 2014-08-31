@@ -23,11 +23,11 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 }
 .overlay{
     padding:10px;
-    background-color: #22313F;
     font-size: 30px;
 /*    box-shadow: 0px 1px 2px 00px #000;*/
     text-align: center;
-    border-bottom: 1px solid #fff;
+    border-bottom: 4px solid #22313F;
+    background-color: #52B3D9;
 }
 .overlay i{
     position: relative;
@@ -40,13 +40,13 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     font-weight: bolder;
     letter-spacing: 2px;
     font-size: 28px;
-    text-shadow: 0 0 1px #000;
+    text-shadow: 0 0 1px #336E7B;
 }
 
 
 .main-content{
     
-    
+    overflow: hidden;
 }
 .main-content input{
     margin:30px auto;
@@ -85,6 +85,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     color: #ddd; 
 }
 
+/*
 
 .generatebtn{
     border-radius: 0;
@@ -116,6 +117,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     outline: 0;
     
 }
+*/
 .footer{
     text-align: center;
     padding: 20px;
@@ -127,12 +129,14 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     color: black;
     padding: 10px;
     font-size: 16px;
+    margin-bottom: 15px;
 }
 .fooditem .name{
     
 }
 .fooditem .cost{
     float: right;
+    margin-right: 10px;
 }
 
 #show{
@@ -201,10 +205,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 .custom-list a i{
     letter-spacing: 10px;
 }
-#show-item{
-    padding:10px;
-    color:black;
-}
+
 .main-content.menu input{
     height: 40px;
     width: 44%;
@@ -222,4 +223,88 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     padding:10px;
     display: none;
     color:black;
+    overflow-x: auto;
+    height:0px;
+    
 }
+
+.total-cost{
+    position: fixed;
+    bottom:-1px;
+    text-align: center;
+    height:60px;
+    
+    width:100%;
+    background-color: #fff;
+    max-width: 500px;
+    
+  
+    
+    font-size: 18px;
+    box-shadow: 0px 0px 2px 00px #000;
+    color:#22313F;
+    
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+}
+.bottom-tab-button{
+    padding:15px;
+    width:33.333333%;
+    float:left;
+}
+.bottom-tab-button:hover{
+    cursor: pointer;
+}
+.bottom-tab-button.clear{
+    
+    background-color: rgba(129, 207, 224,0.2);
+    border-top:4px solid rgba(34, 167, 240,1);
+}
+.bottom-tab-button.total{
+    background-color: rgba(34, 167, 240,0.2);
+    border-top:4px solid rgba(30, 139, 195,1);
+}
+.bottom-tab-button.confirm{
+    background-color: rgba(31, 58, 147,0.2);
+    border-top:4px solid rgba(31, 58, 147,1);
+}
+.selected-box-cont{
+    position: absolute;
+    width:100%;
+    max-width: 500px;
+    overflow: hidden;
+    display:none;
+    padding:20px;
+    
+}
+.selected-box{
+    padding:10px;
+    height:300px;
+    position: relative;
+    background-color: rgba(255,255,255,1);
+    left:500px;
+    overflow-y: scroll;
+    border-radius:8px;
+    border:2px solid black;
+    color:black;
+    z-index: 1;
+}
+.quan{
+    float:right;
+    padding: 3px 12px;
+    margin: 0px 10px -7px 0px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #fff;
+    border-radius: 1px;
+    border-bottom: 2px solid #81CFE0;
+    position: relative;
+    top: -5px;
+    z-index: 0;
+    
+}
+
