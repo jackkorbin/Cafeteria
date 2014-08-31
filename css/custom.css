@@ -250,7 +250,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 }
 .bottom-tab-button{
     padding:15px;
-    width:34%;
+    width:33.333%;
     float:left;
 }
 .bottom-tab-button:hover{
