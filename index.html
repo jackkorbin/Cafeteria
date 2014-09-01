@@ -41,23 +41,26 @@
                 <span> Easy Cafe </span>
             </div>
             
+
 <!--
             <ul class="nav nav-tabs nav-justified tab-ul" >
               <li class="active"><a class="" href="#menu" data-toggle="tab">Menu</a></li>
               <li class=""><a class="" href="#randomfood" data-toggle="tab">Random</a></li>
             </ul>
 -->
+
 <!--
             <ul class="nav navbar-nav custom-tab-ul hidden-xs" id="myTab">
                 <li class="custom-list active"><a href="#menu" data-toggle="tab" class=""><i class="glyphicon glyphicon-heart"></i><span>Cafe Menu</span></a></li>
-                <li class="custom-list"><a href="#what" data-toggle="tab" class=""><i class="glyphicon glyphicon-fire"></i><span>Selected Food</span></a></li>
+                <li class="custom-list"><a href="#randomfood" data-toggle="tab" class=""><i class="glyphicon glyphicon-fire"></i><span>Selected Food</span></a></li>
             </ul>
             
             <ul class="nav navbar-nav custom-tab-ul visible-xs" id="myTab">
                 <li class="custom-list active"><a href="#menu" data-toggle="tab" class=""><i class="glyphicon glyphicon-heart"></i><span>Menu</span></a></li>
-                <li class="custom-list"><a href="#what" data-toggle="tab" class=""><i class="glyphicon glyphicon-fire"></i><span>Selected</span></a></li>
+                <li class="custom-list"><a href="#randomfood" data-toggle="tab" class=""><i class="glyphicon glyphicon-fire"></i><span>Selected</span></a></li>
             </ul>
 -->
+
             
              <div class="tab-content settings">
                 
@@ -70,46 +73,36 @@
                         </div>
                         
                         <div class="selected-box-cont"><!-- Tab 2 -->
-                            <div class="selected-box" id="what">
+                            <div class="selected-box">
                                 
-                                <div class="fooditem">
-                                    <span class="name" id="name">
-                                        Rajma chawal
-                                    </span>
-                                    <span class="">
-                                         x 4 
-                                    </span>
-                                    <span class="cost" id="cost">
-                                        78 Rs
-                                    </span>
-                                </div>
-                                
-                                <div class="fooditem">
-                                    <span class="name" id="name">
-                                        Paw Bhaji
-                                    </span>
-                                    <span class="">
-                                         x 1 
-                                    </span>
-                                    <span class="cost" id="cost">
-                                        35 Rs
-                                    </span>
-                                </div>
-                                
-                                <div class="fooditem">
-                                    <span class="name" id="name">
-                                        paneer pizza
-                                    </span>
-                                    <span class="">
-                                         x 4 
-                                    </span>
-                                    <span class="cost" id="cost">
-                                        210 Rs
-                                    </span>
+                                <div id="what">
+<!--
+                                    <div class="fooditem no-margin">
+                                        <span class="name" id="name">
+                                            Rajma chawal
+                                        </span>
+                                        <span class="">
+                                             x 4 
+                                        </span>
+                                        <span class="cost" id="cost">
+                                            78 Rs
+                                        </span>
+                                    </div>
+-->
                                 </div>
                                 
                                 
-                            </div>   
+                                <div class="btn btn-danger bottom-tab-button-back back">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                    Back
+                                </div>
+                                <div class="btn btn-success bottom-tab-button-back save">
+                                    <span class="glyphicon glyphicon-check"></span>
+                                    Save
+                                </div>
+                                
+                            
+                            </div> 
                         </div>
                         
                         <div id="show-menu">                 
@@ -132,7 +125,7 @@
                     </div>
                 </div> <!-- End of tab 1 -->
             
-<!-- // RANDOM FOOD TAB
+
                 <div class="fade in tab-pane" id="randomfood">
                     <div class="main-content">
                         
@@ -146,7 +139,7 @@
                     <button class="btn generatebtn" id="random">Generate Food</button>
                    
                 </div> 
--->
+
                  
                 
                  
@@ -164,13 +157,16 @@
             
         <div id="totalcost" class="total-cost">
             <div class="clear bottom-tab-button">
+                <span class="glyphicon glyphicon-fire"></span>
                 Clear all
             </div>
             <div class="total bottom-tab-button">
                 Total 0 Rs.
+                
             </div>
             <div class="confirm bottom-tab-button">
                 Confirm
+                <span class="glyphicon glyphicon-forward"></span>
             </div>
         </div>
             
@@ -231,9 +227,7 @@ $(document).on("click", ".quan", function() {
         if (parseInt(quantity[i].value) > 0) {
             costi = parseInt(costs[i].innerHTML);
             
-            
-            texts += foods[i].innerHTML + "(" + costi + ") * " + parseInt(quantity[i].value) + " = Rs. " + (costi * parseInt(quantity[i].value)) + "<br />";
-            
+            texts += '<div class="fooditem no-margin"><span class="name" id="name">'+foods[i].innerHTML+'</span><span class=""> x '+parseInt(quantity[i].value)+' </span><span class="cost" id="cost"> '+ (costi * parseInt(quantity[i].value)) +' Rs</span></div>';
             
             total += (costi * parseInt(quantity[i].value)); 
             
@@ -241,31 +235,59 @@ $(document).on("click", ".quan", function() {
         
     }
     
-    texts += "TOTAL : Rs. " + total;
+    //texts += "TOTAL : Rs. " + total;
     
     $('.total.bottom-tab-button').html(total+" Rs." );
     $('#what').html(texts);
 });
     
+$(document).on("click", ".bottom-tab-button.clear", function() {
+    
+    fetchmenu();
+    $('#what').html('');
+    $('.total.bottom-tab-button').html('Total 0 Rs.')
+    
+    
+});
+    
+    
+// CONFORM BOX SLIDES -->    
 var togglebool = 1;    
 $(document).on("click", ".confirm", function() {
     
     
     if( togglebool == 1 ){
-        $('.selected-box-cont').show(500);
-        //$('.selected-box').animate({'left':'0px'},400);
+        $('.selected-box-cont').css('display','block');
+        $('.selected-box').animate({'left':'0px'},300);
+        
+        
         $('.confirm').html('<i class="glyphicon glyphicon-refresh spin"></i>');
         setTimeout(function(){
             $('.confirm').html('Back');
-        },300);
+        },200);
         togglebool = 0;
     }
     else{
-        $('.selected-box-cont').hide(300);
-        //$('.selected-box').animate({'left':'500px'},400);
+        
+        $('.selected-box').animate({'left':'500px'},300);
+        setTimeout(function(){
+            $('.selected-box-cont').css('display','none');
+        },300);
+        
         $('.confirm').html('Confirm');
         togglebool = 1;
     }
+});
+$(document).on("click", ".bottom-tab-button-back.back", function() {
+   
+    
+    $('.selected-box').animate({'left':'500px'},300);
+    setTimeout(function(){
+        $('.selected-box-cont').css('display','none');
+    },300);
+
+    $('.confirm').html('Confirm');
+    togglebool = 1;
 });
     
     
@@ -279,12 +301,12 @@ function sortmenu(){
     
     //$('.fooditem').css('display','none');
     
-    for( i=0; i<menu.length;i++ ){
-        $('#fooditem'+i).hide(200);
+    for( var i=0; i<menu.length;i++ ){
+        $('#fooditem'+i).css({'display':'none'});
         
         if( (menu[i].cost <= budget || budget == '') && ( (menu[i].name.toLowerCase()).indexOf(name) != -1 || name == '' ) ){
             //text += '<div class="fooditem"><span class="name">'+menu[i].name+'</span><span class="cost">'+menu[i].cost+' Rs</span></div>';
-            $('#fooditem'+i).show(200);
+            $('#fooditem'+i).css({'display':'block'});
             
         }
     }
@@ -297,7 +319,7 @@ function fetchmenu(){
     var text = '';
     for( i=0; i < menu.length; i++ ){
         
-        text += '<div class="fooditem" id="fooditem'+i+'><span class="name" id="name">' + menu[i].name + '</span>' +  options() + '<span class="cost" id="cost">'+ menu[i].cost +' Rs. </span></div>';
+        text += '<div class="fooditem" id="fooditem'+i+'"><span class="name" id="name">' + menu[i].name + '</span>' +  options() + '<span class="cost" id="cost">'+ menu[i].cost +' Rs. </span></div>';
     }
     
     
@@ -308,7 +330,7 @@ function fetchmenu(){
     $('#show-menu').html(text);
     
     $('#show-menu').css('height',showmenuheight+'px');
-    $('.selected-box').css('height',showmenuheight - 50+'px');
+    $('.selected-box').css('height',showmenuheight + 56+'px');
     
     
     $('#show-menu').show(500);

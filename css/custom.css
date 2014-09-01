@@ -73,19 +73,23 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 }
 .main-content input:focus::-webkit-input-placeholder { 
     color: #ddd;
+    text-align:center;
 }
 
 .main-content input:focus:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     color: #ddd; 
+    text-align:center;
 }
 .main-content input:focus::-moz-placeholder { /* Mozilla Firefox 19+ */
     color: #ddd; 
+    text-align:center;
 }
 .main-content input:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
     color: #ddd; 
+    text-align:center;
 }
 
-/*
+
 
 .generatebtn{
     border-radius: 0;
@@ -117,7 +121,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     outline: 0;
     
 }
-*/
+
 .footer{
     text-align: center;
     padding: 20px;
@@ -275,18 +279,17 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     max-width: 500px;
     overflow: hidden;
     display:none;
-    padding:20px;
-    
+    top: 65px;
 }
 .selected-box{
     padding:10px;
     height:300px;
     position: relative;
     background-color: rgba(255,255,255,1);
-    left:0px;
+    left:500px;
     overflow-y: scroll;
-    border-radius:8px;
-    border:2px solid black;
+/*    border-radius:8px;*/
+/*    border:2px solid black;*/
     color:black;
     z-index: 1;
 }
@@ -307,4 +310,23 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     z-index: 0;
     
 }
-
+.no-margin{
+    margin-bottom:0px !important;
+}
+.bottom-tab-button span{
+    margin:0 5px;
+    top: 3px;
+}
+.bottom-tab-button-back{
+    
+    height: 60px;
+    width: 50%;
+    position: relative;
+    font-size: 18px;
+    line-height: 42px;
+    float: left;
+    border-radius: 0px;
+}
+.bottom-tab-button-back span{
+    top:3px;
+}
