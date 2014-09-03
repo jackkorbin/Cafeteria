@@ -191,7 +191,7 @@ var showmenuheight = parseInt($(document).innerHeight() - 180);
 
     
 $(document).ready(function(){
-    //$('#budget').focus();
+    
     $('#myTab a').click(function () {
       $(this).tab('show');
     });
@@ -206,16 +206,13 @@ $(document).ready(function(){
     
 $(window).load(function(){
     
-    $('.clear').click(function(){
-        fetchmenu();
-        $('.total.bottom-tab-button').html("Total 0 Rs.");
-    });
+    clearall();
     
 });
     
 /// UPDATE TOTAL : -->
     
-$(document).on("click", ".quan", function() {
+$(document).on("change", ".quan", function() {
     foods = $('#show-menu div .name');
     quantity = $('#show-menu div .quan');
     costs = $('#show-menu div .cost');
@@ -231,6 +228,15 @@ $(document).on("click", ".quan", function() {
             
             total += (costi * parseInt(quantity[i].value)); 
             
+            //console.log( quantity[i].value );
+    
+            if( parseInt(quantity[i].value) == 0 ){
+                $('#fooditem'+i+' .quan').css({'border-bottom':'2px solid #81CFE0'});
+            }
+            else{
+                $('#fooditem'+i+' .quan').css({'border-bottom':'2px solid #D91E18'});
+            }
+            
         }
         
     }
@@ -241,54 +247,55 @@ $(document).on("click", ".quan", function() {
     $('#what').html(texts);
 });
     
+// CLEAR ALL -->    
 $(document).on("click", ".bottom-tab-button.clear", function() {
-    
-    fetchmenu();
-    $('#what').html('');
-    $('.total.bottom-tab-button').html('Total 0 Rs.')
-    
-    
+    clearall();
 });
     
     
-// CONFORM BOX SLIDES -->    
+// SELECTED BOX SLIDES -->    
 var togglebool = 1;    
 $(document).on("click", ".confirm", function() {
     
-    
     if( togglebool == 1 ){
-        $('.selected-box-cont').css('display','block');
-        $('.selected-box').animate({'left':'0px'},300);
-        
-        
-        $('.confirm').html('<i class="glyphicon glyphicon-refresh spin"></i>');
-        setTimeout(function(){
-            $('.confirm').html('Back');
-        },200);
+        showselected();
         togglebool = 0;
     }
     else{
-        
-        $('.selected-box').animate({'left':'500px'},300);
-        setTimeout(function(){
-            $('.selected-box-cont').css('display','none');
-        },300);
-        
-        $('.confirm').html('Confirm');
+        hideselected();
         togglebool = 1;
     }
 });
 $(document).on("click", ".bottom-tab-button-back.back", function() {
    
     
+    hideselected();
+    togglebool = 1;
+});
+    
+function showselected(){
+    $('.selected-box-cont').css('display','block');
+    $('.selected-box').animate({'left':'0px'},300);
+
+
+    $('.confirm').html('<i class="glyphicon glyphicon-refresh spin"></i>');
+    setTimeout(function(){
+        $('.confirm').html('Back');
+    },200);
+}
+function hideselected(){
     $('.selected-box').animate({'left':'500px'},300);
     setTimeout(function(){
         $('.selected-box-cont').css('display','none');
     },300);
 
     $('.confirm').html('Confirm');
-    togglebool = 1;
-});
+}
+function clearall(){
+    fetchmenu();
+    $('#what').html('');
+    $('.total.bottom-tab-button').html('Total 0 Rs.');
+}
     
     
 //FETCH AND SORT MENU -->
