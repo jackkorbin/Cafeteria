@@ -355,16 +355,16 @@ var menu = [
     },
     { 
         'category':'Ice Cream', 
-        'name':'Pepsi', 
+        'name':'Coldrink', 
         'description':'', 
         'cost': 15
     },
-    { 
-        'category':'Ice Cream', 
-        'name':'Mineral Water', 
-        'description':'', 
-        'cost': "MRP"
-    },
+//    { 
+//        'category':'Ice Cream', 
+//        'name':'Mineral Water', 
+//        'description':'', 
+//        'cost': "MRP"
+//    },
     { 
         'category':'Cakes/Pastry', 
         'name':'Fruit Juice', 

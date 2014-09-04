@@ -37,6 +37,7 @@
         
         <div class="main-box">
             <div class="overlay">
+<!--                <span class="btn btn-success btn-history">History</span>-->
                 <i class="glyphicon glyphicon-cutlery"></i>
                 <span> Easy Cafe </span>
             </div>
@@ -228,15 +229,14 @@ $(document).on("change", ".quan", function() {
             
             total += (costi * parseInt(quantity[i].value)); 
             
-            //console.log( quantity[i].value );
+            console.log( quantity[i].value );
     
-            if( parseInt(quantity[i].value) == 0 ){
-                $('#fooditem'+i+' .quan').css({'border-bottom':'2px solid #81CFE0'});
-            }
-            else{
-                $('#fooditem'+i+' .quan').css({'border-bottom':'2px solid #D91E18'});
-            }
-            
+        }
+        if( parseInt(quantity[i].value) == 0 ){
+            $('#fooditem'+i+' .quan').css({'border-bottom':'2px solid #81CFE0'});
+        }
+        else{
+            $('#fooditem'+i+' .quan').css({'border-bottom':'2px solid #D91E18'});
         }
         
     }
@@ -251,6 +251,11 @@ $(document).on("change", ".quan", function() {
 $(document).on("click", ".bottom-tab-button.clear", function() {
     clearall();
 });
+  
+    
+//$(document).on("click", ".fooditem", function() {
+//    $(this).find('.quan').trigger('change');
+//});
     
     
 // SELECTED BOX SLIDES -->    
