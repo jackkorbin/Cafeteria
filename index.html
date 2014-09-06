@@ -282,6 +282,8 @@
 <script src="js/vendor/jquery-1.11.0.min.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="menu.json"></script>
+<script src="js/click.js"></script>
+<script src="js/history.js"></script>
 <script>
     
 var showmenuheight = parseInt($(document).innerHeight() - 180);
@@ -302,145 +304,31 @@ $(document).ready(function(){
 });
     
 $(window).load(function(){
-    
     clearall();
-    
 });
     
 //HISTORY TAB -->
     
 function showhistorytab(){
     $('.history-box-cont').show(200);
-    updatehistory();
+    
 }
 function hidehistorytab(){
     $('.history-box-cont').hide(200);
 }
 
-
-$(document).on('click','#hidehistorytab',function(){
-    hidehistorytab();
-});
-$(document).on('click','.btn-history',function(){
-    showhistorytab();
-});
-    
-    
-/// EDIT AND FETCH HISTORY -->
-    
-var arrayofselecteditems = new Array();
-    
-var history = getLocalStorage() || dispError('Local Storage not supported.');
-    
-function update_arrayofselecteditems(name,quantity,cost){
-    var fooddetail = {
-        'name':name,
-        'quantity':quantity,
-        'cost':cost
-    };
-    arrayofselecteditems.push(fooddetail);
-}
-    
-function getLocalStorage() {
-    try {
-        if( !! window.localStorage ) return window.localStorage;
-    } 
-    catch(e) {
-        return undefined;
-    }
-}
-    
-function updatehistory(){
-
-    var wholedates = '';
-    var w1 = '';
-    var w2 = '';
-    var cost = 0;;
-    var total = 0;
-    if( history.length == 0 ){
-        wholedates = '<div class="onedate">No History. <br>Are you sure You Saved your order?</div>';
-    }
-    else{
-        for(var i in history){
-//            console.log(i);
-            var temp = JSON.parse( history.getItem( i ) );
-            var date = i.split(" ");
-            var time = coverttotime(date[4]);
-            
-            w1 += '<div class="onedate">';
-            w1 += '<div class="fooditem fooditem-date">';
-            w1 += '<span class="name" id="name">'+time+' '+date[2]+' '+date[1]+' '+date[3]+'</span><span class="cost" id="cost">';
-            w2 += ' Rs</span><span class="glyphicon glyphicon-chevron-down icon"></span></div>'; // FOODITEM-date DIV closed
-            w2 += '<div class="fooditem-subs-cont">';
-                for( var j=0; j<temp.length; j++ ){
-                    w2 += '<div class="fooditem-subs"><span class="name">'+temp[j].name+' x '+temp[j].quantity+'</span><span class="cost">'+temp[j].cost+' Rs</span></div>';
-                    cost += temp[j].cost;
-                }
-            w2 += '</div>';
-            w2 += '</div>';
-
-            
-            total += cost;
-            wholedates += w1+cost+w2;
-            w1 = '';
-            w2 = '';
-            cost = 0;
-        }
-    }
-    
-    wholedates += '<div class="fooditem total-css"><span class="name" id="name">Total</span><span class="cost" id="cost">'+total+' Rs</span></div>';
-    
-    
-    $('#history').html(wholedates);
-}
-updatehistory();
-    
-
-$(document).on("click", ".onedate", function() {
-    $(this).find('.fooditem-subs-cont').slideToggle(200);
-    $(this).find('.fooditem-date .icon').slideToggle(200);
-    
-});
-    
+//updatehistory();
+  
 function coverttotime(t){
     var mode = "am";
-    t = t.split(':');
-    if( t[0] > 12 ){
-        t[0] = t[0] - 12;
+    te = t.split(':');
+    if( te[0] > 12 ){
+        te[0] = te[0] - 12;
         mode = "pm";
     }
-    var time = t[0]+':'+t[1]+' '+mode;
+    var time = te[0]+':'+te[1]+' '+mode;
     return time;
-}
-    
-function savehistory(){
-    
-    var currentTime = new Date();
-    
-    history.setItem(currentTime, JSON.stringify(arrayofselecteditems) );
-    
-}
-    
-function clearhistory(){
-    
-    history.clear();
-    arrayofselecteditems = [];
-    hidehistorytab();
-}
-
-
-$(document).on("click", "#clearhistory", function() {
-    clearhistory();
-    updatehistory();
-});
-    
-$(document).on("click", "#savehistory", function() {
-    savehistory();
-    clearall();
-    
-});
-    
-
+} 
     
 var booleanconfirm = 0; // HAS TO BE 1 for confirm to work;
     
@@ -503,9 +391,7 @@ $(document).on("change", ".quan", function() {
         else{
             $('#fooditem'+i+' .quan').css({'border-bottom':'2px solid #D91E18'});
         }
-        
-        
-        
+         
     }
     
     //texts += "TOTAL : Rs. " + total;
@@ -526,49 +412,12 @@ $(document).on("change", ".quan", function() {
     }
 });
     
-// CLEAR ALL -->    
-$(document).on("click", ".bottom-tab-button.clear", function() {
-    clearall();
-    hideselected();
-});
-    
 
-  
-    
-//$(document).on("click", ".fooditem", function() {
-//    $(this).find('.quan').trigger('change');
-//});
-    
-    
-// SELECTED BOX SLIDES -->    
-var togglebool = 1;    
-$(document).on("click", ".confirm", function(e) {
-    
-    if( booleanconfirm == 0 ){
-        e.preventDefault;
-    }
-    else{
-        if( togglebool == 1 ){
-            showselected();
-        }
-        else{
-            hideselected();
-            togglebool = 1;
-        }
-        
-    }
-    
-    
-});
-$(document).on("click", ".bottom-tab-button-back.back", function() {
-    
-    hideselected();
-    
-});
-    
 $(window).resize(function() { 
     responsiveness(); 
-});
+});   
+    
+
     
     
 function responsiveness(){
