@@ -312,6 +312,7 @@ $(window).load(function(){
     
 function showhistorytab(){
     $('.history-box-cont').show(200);
+    updatehistory();
 }
 function hidehistorytab(){
     $('.history-box-cont').hide(200);
@@ -395,7 +396,8 @@ function updatehistory(){
 }
 updatehistory();
     
-$('.onedate').click(function(){
+
+$(document).on("click", ".onedate", function() {
     $(this).find('.fooditem-subs-cont').slideToggle(200);
     $(this).find('.fooditem-date .icon').slideToggle(200);
     
@@ -434,7 +436,8 @@ $(document).on("click", "#clearhistory", function() {
     
 $(document).on("click", "#savehistory", function() {
     savehistory();
-    arrayofselecteditems = [];
+    hidehistorytab();
+    clearall();
 });
     
 
@@ -589,6 +592,7 @@ function clearall(){
     fetchmenu();
     $('#what').html('');
     $('.total.bottom-tab-button').html('Total 0 Rs.');
+    arrayofselecteditems = [];
 }
     
     
