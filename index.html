@@ -182,8 +182,7 @@
                                     </div>
 -->
                                     <div class="onedate">
-                                        No History!! <br>
-                                        Make sure You Saved your order.
+                                        Local storage dont support in your browser
                                     </div>
                                     
                                     
@@ -426,6 +425,7 @@ function clearhistory(){
     
     history.clear();
     arrayofselecteditems = [];
+    hidehistorytab();
 }
 
 
@@ -436,13 +436,13 @@ $(document).on("click", "#clearhistory", function() {
     
 $(document).on("click", "#savehistory", function() {
     savehistory();
-    hidehistorytab();
     clearall();
+    
 });
     
 
     
-    
+var booleanconfirm = 0; // HAS TO BE 1 for confirm to work;
     
     
 /// UPDATE TOTAL : -->
@@ -509,6 +509,12 @@ $(document).on("change", ".quan", function() {
     }
     
     //texts += "TOTAL : Rs. " + total;
+    if( total > 0 ){
+        booleanconfirm = 1;
+    }
+    else{
+        booleanconfirm = 0;
+    }
     
     $('.total.bottom-tab-button').html(total+" Rs." );
     
@@ -536,19 +542,25 @@ $(document).on("click", ".bottom-tab-button.clear", function() {
     
 // SELECTED BOX SLIDES -->    
 var togglebool = 1;    
-$(document).on("click", ".confirm", function() {
+$(document).on("click", ".confirm", function(e) {
     
-    if( togglebool == 1 ){
-        showselected();
-        
+    if( booleanconfirm == 0 ){
+        e.preventDefault;
     }
     else{
-        hideselected();
-        togglebool = 1;
+        if( togglebool == 1 ){
+            showselected();
+        }
+        else{
+            hideselected();
+            togglebool = 1;
+        }
+        
     }
+    
+    
 });
 $(document).on("click", ".bottom-tab-button-back.back", function() {
-   
     
     hideselected();
     
@@ -592,7 +604,9 @@ function clearall(){
     fetchmenu();
     $('#what').html('');
     $('.total.bottom-tab-button').html('Total 0 Rs.');
+    hideselected();
     arrayofselecteditems = [];
+    booleanconfirm = 0;
 }
     
     
