@@ -37,9 +37,19 @@
         
         <div class="main-box">
             <div class="overlay">
-<!--                <span class="btn btn-success btn-history">History</span>-->
-                <i class="glyphicon glyphicon-cutlery"></i>
-                <span> Easy Cafe </span>
+                <span class="btn btn-success btn-history">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    History
+                </span>
+                <div class="title">
+<!--
+                    <i class="glyphicon glyphicon-cutlery"></i>
+                    <span> Easy Cafe </span>
+-->
+                    <span>Cafetaria</span>
+                </div>
+                
+                
             </div>
             
 
@@ -50,17 +60,21 @@
             </ul>
 -->
 
+
 <!--
             <ul class="nav navbar-nav custom-tab-ul hidden-xs" id="myTab">
                 <li class="custom-list active"><a href="#menu" data-toggle="tab" class=""><i class="glyphicon glyphicon-heart"></i><span>Cafe Menu</span></a></li>
                 <li class="custom-list"><a href="#randomfood" data-toggle="tab" class=""><i class="glyphicon glyphicon-fire"></i><span>Selected Food</span></a></li>
             </ul>
+-->
             
-            <ul class="nav navbar-nav custom-tab-ul visible-xs" id="myTab">
+<!--
+            <ul class="nav navbar-nav custom-tab-ul" id="myTab">
                 <li class="custom-list active"><a href="#menu" data-toggle="tab" class=""><i class="glyphicon glyphicon-heart"></i><span>Menu</span></a></li>
                 <li class="custom-list"><a href="#randomfood" data-toggle="tab" class=""><i class="glyphicon glyphicon-fire"></i><span>Selected</span></a></li>
             </ul>
 -->
+
 
             
              <div class="tab-content settings">
@@ -73,7 +87,7 @@
                             <input type="text" class="form-control" id="budget-menu" placeholder="Budget">
                         </div>
                         
-                        <div class="selected-box-cont"><!-- Tab 2 -->
+                        <div class="selected-box-cont">
                             <div class="selected-box">
                                 
                                 <div id="what">
@@ -90,6 +104,7 @@
                                         </span>
                                     </div>
 -->
+                                    No Items Selected!
                                 </div>
                                 
                                 
@@ -97,7 +112,7 @@
                                     <span class="glyphicon glyphicon-chevron-left"></span>
                                     Back
                                 </div>
-                                <div class="btn btn-success bottom-tab-button-back save">
+                                <div class="btn btn-success bottom-tab-button-back save" id="savehistory">
                                     <span class="glyphicon glyphicon-check"></span>
                                     Save
                                 </div>
@@ -121,12 +136,93 @@
                             <i class="glyphicon glyphicon-refresh spin"></i>
                         </div>
                         
+<!--                        HISTORY TAB-->
+                        
+                        <div class="history-box-cont">
+                            <div class="history-box">
+                                
+                                <div class="overlay overlay-his">
+                                    <span> History </span>
+                                </div>
+                                
+                                <div id="history">
+                                    
+<!--
+                                    <div class="onedate">
+                                        
+                                        <div class="fooditem fooditem-date">
+                                            <span class="name" id="name">
+                                                2nd june 2014
+                                            </span>
+                                            <span class="cost" id="cost">
+                                                282 Rs
+                                            </span>
+                                            <span class="glyphicon glyphicon-chevron-down"></span>
+                                        </div>
+                                        
+                                        <div class="fooditem-subs-cont">
+                                            <div class="fooditem-subs">
+                                                <span class="name">
+                                                    Rajma Chawal x 1
+                                                </span>
+                                                <span class="cost">
+                                                    76 Rs
+                                                </span>
+                                            </div>
+                                            <div class="fooditem-subs">
+                                                <span class="subs-name">
+                                                    Cheese pizza x 4
+                                                </span>
+                                                <span class="cost">
+                                                    206 Rs
+                                                </span>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+-->
+                                    <div class="onedate">
+                                        No History!! <br>
+                                        Make sure You Saved your order.
+                                    </div>
+                                    
+                                    
+                                    
+                                    <div class="fooditem total-css">
+                                        <span class="name" id="name">
+                                            Total
+                                        </span>
+                                        <span class="cost" id="cost">
+                                            780 Rs
+                                        </span>
+                                    </div>
+                                    
+
+                                </div>
+                                
+                                
+                                
+                                <div class="btn btn-danger bottom-tab-button-back save" id="clearhistory">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                    Clear History
+                                </div>
+                                <div class="btn btn-warning bottom-tab-button-back back" id="hidehistorytab">
+                                    <span class="glyphicon glyphicon-home"></span>
+                                    Back
+                                </div>
+                                
+                                
+                            
+                            </div> 
+                        </div>
+                        
                         
                         
                     </div>
                 </div> <!-- End of tab 1 -->
             
 
+<!--
                 <div class="fade in tab-pane" id="randomfood">
                     <div class="main-content">
                         
@@ -140,6 +236,7 @@
                     <button class="btn generatebtn" id="random">Generate Food</button>
                    
                 </div> 
+-->
 
                  
                 
@@ -158,7 +255,7 @@
             
         <div id="totalcost" class="total-cost">
             <div class="clear bottom-tab-button">
-                <span class="glyphicon glyphicon-fire"></span>
+<!--                <span class="glyphicon glyphicon-fire"></span>-->
                 Clear all
             </div>
             <div class="total bottom-tab-button">
@@ -167,7 +264,7 @@
             </div>
             <div class="confirm bottom-tab-button">
                 Confirm
-                <span class="glyphicon glyphicon-forward"></span>
+<!--                <span class="glyphicon glyphicon-forward"></span>-->
             </div>
         </div>
             
@@ -211,6 +308,140 @@ $(window).load(function(){
     
 });
     
+//HISTORY TAB -->
+    
+function showhistorytab(){
+    $('.history-box-cont').show(200);
+}
+function hidehistorytab(){
+    $('.history-box-cont').hide(200);
+}
+
+
+$(document).on('click','#hidehistorytab',function(){
+    hidehistorytab();
+});
+$(document).on('click','.btn-history',function(){
+    showhistorytab();
+});
+    
+    
+/// EDIT AND FETCH HISTORY -->
+    
+var arrayofselecteditems = new Array();
+    
+var history = getLocalStorage() || dispError('Local Storage not supported.');
+    
+function update_arrayofselecteditems(name,quantity,cost){
+    var fooddetail = {
+        'name':name,
+        'quantity':quantity,
+        'cost':cost
+    };
+    arrayofselecteditems.push(fooddetail);
+}
+    
+function getLocalStorage() {
+    try {
+        if( !! window.localStorage ) return window.localStorage;
+    } 
+    catch(e) {
+        return undefined;
+    }
+}
+    
+function updatehistory(){
+
+    var wholedates = '';
+    var w1 = '';
+    var w2 = '';
+    var cost = 0;;
+    var total = 0;
+    if( history.length == 0 ){
+        wholedates = '<div class="onedate">No History. <br>Are you sure You Saved your order?</div>';
+    }
+    else{
+        for(var i in history){
+//            console.log(i);
+            var temp = JSON.parse( history.getItem( i ) );
+            var date = i.split(" ");
+            var time = coverttotime(date[4]);
+            
+            w1 += '<div class="onedate">';
+            w1 += '<div class="fooditem fooditem-date">';
+            w1 += '<span class="name" id="name">'+time+' '+date[2]+' '+date[1]+' '+date[3]+'</span><span class="cost" id="cost">';
+            w2 += ' Rs</span><span class="glyphicon glyphicon-chevron-down icon"></span></div>'; // FOODITEM-date DIV closed
+            w2 += '<div class="fooditem-subs-cont">';
+                for( var j=0; j<temp.length; j++ ){
+                    w2 += '<div class="fooditem-subs"><span class="name">'+temp[j].name+' x '+temp[j].quantity+'</span><span class="cost">'+temp[j].cost+' Rs</span></div>';
+                    cost += temp[j].cost;
+                }
+            w2 += '</div>';
+            w2 += '</div>';
+
+            
+            total += cost;
+            wholedates += w1+cost+w2;
+            w1 = '';
+            w2 = '';
+            cost = 0;
+        }
+    }
+    
+    wholedates += '<div class="fooditem total-css"><span class="name" id="name">Total</span><span class="cost" id="cost">'+total+' Rs</span></div>';
+    
+    
+    $('#history').html(wholedates);
+}
+updatehistory();
+    
+$('.onedate').click(function(){
+    $(this).find('.fooditem-subs-cont').slideToggle(200);
+    $(this).find('.fooditem-date .icon').slideToggle(200);
+    
+});
+    
+function coverttotime(t){
+    var mode = "am";
+    t = t.split(':');
+    if( t[0] > 12 ){
+        t[0] = t[0] - 12;
+        mode = "pm";
+    }
+    var time = t[0]+':'+t[1]+' '+mode;
+    return time;
+}
+    
+function savehistory(){
+    
+    var currentTime = new Date();
+    
+    history.setItem(currentTime, JSON.stringify(arrayofselecteditems) );
+    
+}
+    
+function clearhistory(){
+    
+    history.clear();
+    arrayofselecteditems = [];
+}
+
+
+$(document).on("click", "#clearhistory", function() {
+    clearhistory();
+    updatehistory();
+});
+    
+$(document).on("click", "#savehistory", function() {
+    savehistory();
+    arrayofselecteditems = [];
+});
+    
+
+    
+    
+    
+    
 /// UPDATE TOTAL : -->
     
 $(document).on("change", ".quan", function() {
@@ -229,9 +460,40 @@ $(document).on("change", ".quan", function() {
             
             total += (costi * parseInt(quantity[i].value)); 
             
-            console.log( quantity[i].value );
+            var repeat = false;
+            
+            for(var j=0; j<arrayofselecteditems.length; j++){
+                
+                if( foods[i].innerHTML == arrayofselecteditems[j].name  ){
+                    repeat = true;
+                    if( parseInt(quantity[i].value) == arrayofselecteditems[j].quantity ){
+                        break;
+                    }
+                    else{
+                        arrayofselecteditems[j].quantity = parseInt(quantity[i].value);
+                        break;
+                    }
+                }
+                
+            }
+            
+            if( repeat == false  ){
+                    update_arrayofselecteditems(foods[i].innerHTML,parseInt(quantity[i].value),costi * parseInt(quantity[i].value));
+
+            }
     
         }
+        else {
+            for(var j=0; j<arrayofselecteditems.length; j++){
+                
+                if( foods[i].innerHTML == arrayofselecteditems[j].name  ){
+                    arrayofselecteditems.splice(j,1);
+                    break;
+                }
+                
+            }
+        }
+        
         if( parseInt(quantity[i].value) == 0 ){
             $('#fooditem'+i+' .quan').css({'border-bottom':'2px solid #81CFE0'});
         }
@@ -239,18 +501,29 @@ $(document).on("change", ".quan", function() {
             $('#fooditem'+i+' .quan').css({'border-bottom':'2px solid #D91E18'});
         }
         
+        
+        
     }
     
     //texts += "TOTAL : Rs. " + total;
     
     $('.total.bottom-tab-button').html(total+" Rs." );
-    $('#what').html(texts);
+    
+    if( texts == '' ){
+        $('#what').html('No Items Selected!');
+    }
+    else{
+        $('#what').html(texts);
+    }
 });
     
 // CLEAR ALL -->    
 $(document).on("click", ".bottom-tab-button.clear", function() {
     clearall();
+    hideselected();
 });
+    
+
   
     
 //$(document).on("click", ".fooditem", function() {
@@ -264,7 +537,7 @@ $(document).on("click", ".confirm", function() {
     
     if( togglebool == 1 ){
         showselected();
-        togglebool = 0;
+        
     }
     else{
         hideselected();
@@ -275,18 +548,33 @@ $(document).on("click", ".bottom-tab-button-back.back", function() {
    
     
     hideselected();
-    togglebool = 1;
+    
 });
+    
+$(window).resize(function() { 
+    responsiveness(); 
+});
+    
+    
+function responsiveness(){
+    showmenuheight = parseInt($(document).innerHeight() - 180);
+    $('#show-menu').css('height',showmenuheight+'px');
+    $('.selected-box').css('height',showmenuheight + 56+'px');
+    $('.history-box').css('height',showmenuheight + 59 +56+'px');
+    $('#history').css('height',showmenuheight + -30 +'px');
+    $('#history').scrollTop($('#history')[0].scrollHeight);
+}
     
 function showselected(){
     $('.selected-box-cont').css('display','block');
     $('.selected-box').animate({'left':'0px'},300);
 
 
-    $('.confirm').html('<i class="glyphicon glyphicon-refresh spin"></i>');
+    //$('.confirm').html('<i class="glyphicon glyphicon-refresh spin"></i>');
     setTimeout(function(){
         $('.confirm').html('Back');
-    },200);
+    },100);
+    togglebool = 0;
 }
 function hideselected(){
     $('.selected-box').animate({'left':'500px'},300);
@@ -295,6 +583,7 @@ function hideselected(){
     },300);
 
     $('.confirm').html('Confirm');
+    togglebool = 1;
 }
 function clearall(){
     fetchmenu();
@@ -341,8 +630,7 @@ function fetchmenu(){
     
     $('#show-menu').html(text);
     
-    $('#show-menu').css('height',showmenuheight+'px');
-    $('.selected-box').css('height',showmenuheight + 56+'px');
+    responsiveness();
     
     
     $('#show-menu').show(500);

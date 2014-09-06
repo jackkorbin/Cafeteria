@@ -294,6 +294,36 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     color:black;
     z-index: 1;
 }
+
+.history-box-cont{
+    position: absolute;
+    width:100%;
+    max-width: 500px;
+    overflow: hidden;
+    top: 65px;
+    display:none;
+    
+}
+.history-box{
+    padding:10px;
+    height:300px;
+    position: relative;
+    background-color: rgba(255,255,255,1);
+    left:0px;
+    overflow-y: scroll;
+/*    border-radius:8px;*/
+/*    border:2px solid black;*/
+    color:black;
+    z-index: 1;
+    
+    
+}
+
+#history{
+    overflow-y: scroll;
+    height: 426px;
+}
+
 .quan{
     float:right;
     padding: 3px 12px;
@@ -315,8 +345,9 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     margin-bottom:0px !important;
 }
 .bottom-tab-button span{
-    margin:0 5px;
-    top: 3px;
+    margin: 0 4px;
+    top: 1px;
+    font-size: 14px;
 }
 .bottom-tab-button-back{
     
@@ -333,4 +364,66 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 }
 .btn-history{
     float:left;
+    font-size: 18px!important;
+}
+.btn-history .glyphicon{
+    font-size: 12px;
+}
+.overlay .title span{
+    font-size: 26px;
+    font-weight: 100;
+    text-shadow: none;
+}
+
+.overlay.overlay-his{
+    background-color:#1E824C;
+    border-bottom:2px solid #6C7A89;
+    padding:3px;
+    margin-bottom: 10px;
+    
+    
+}
+.overlay.overlay-his span{
+    color:white;
+    font-size: 18px;
+    font-weight: 100;
+    top: -3px;
+    position: relative;
+}
+.fooditem.total-css {
+    background-color: #1E8BC3;
+    color: white;
+    border-radius: 0px;
+    margin-top: 13px;
+    font-size: 18px;
+    padding: 15px;
+}
+.fooditem-date{
+    background-color: #1E8BC3;
+    color: #fff;
+    margin-bottom: 0px;
+}
+.fooditem-subs-cont {
+    padding:5px 0px;
+    padding-left:20px;
+    background-color: #eee;
+    font-size: 14px;
+    display: none;
+    
+}
+.fooditem-subs {
+    padding-bottom: 5px;
+    padding-right: 40px;
+}
+.fooditem-subs .cost {
+    float:right;
+}
+.onedate{
+    margin-bottom:5px;
+}
+
+
+.fooditem-date .glyphicon.glyphicon-chevron-down {
+    margin: 0 6px;
+    font-size: 12px;
 }
