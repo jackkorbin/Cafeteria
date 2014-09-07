@@ -2,7 +2,7 @@ var arrayofselecteditems = new Array();
 
 
     
-var history = window.localStorage;
+//var history = window.localStorage;
 
 
 function update_arrayofselecteditems(name,quantity,cost){
@@ -26,17 +26,23 @@ function updatehistory(){
         wholedates = '<div class="onedate">No History. <br>Are you sure You Saved your order?</div>';
     }
     else{
-        for(var i in history){
+        for(var i in window.localStorage){
             
-            alert(i);
             
-            var temp = JSON.parse( history.getItem( i ) );
-            var date = i.split(" ");
+            i = $.trim(i);
             
-            if( date.length != 9){
+            var temp = JSON.parse( window.localStorage.getItem( i ) );
+            
+            if( i.indexOf(' ') == -1 ){
+                wholedates = '<div class="onedate">No History. <br>Are you sure You Saved your order?</div>';
                 continue;
             }
+           
             
+            
+            
+            
+            var date = i.split(" ");
             var time = coverttotime(date[4]);
             
             w1 += '<div class="onedate">';
@@ -69,13 +75,13 @@ function updatehistory(){
 function savehistory(){
     
     var currentTime = new Date();
-    history.setItem(currentTime, JSON.stringify(arrayofselecteditems) );
+    window.localStorage.setItem(currentTime, JSON.stringify(arrayofselecteditems) );
     
 }
     
 function clearhistory(){
     
-    history.clear();
+    window.localStorage.clear();
     arrayofselecteditems = [];
     hidehistorytab();
 }
