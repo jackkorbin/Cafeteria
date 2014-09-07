@@ -1,7 +1,7 @@
 var menu = [
     {
         'category':'Special Eco Meal',
-        'name':'Deluxe Thali',
+        'name':'Dluxe Thali',
         'description':'',
         'cost':95
     },

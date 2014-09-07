@@ -23,7 +23,7 @@ function updatehistory(){
     var cost = 0;;
     var total = 0;
     if( history.length == 0 ){
-        wholedates = '<div class="onedate">No History. <br>Are you sure You Saved your order?</div>';
+        wholedates = '<div class="onedate">No History.(HISTORY LENGHT == 0) <br>Are you sure You Saved your order?</div>';
     }
     else{
         for(var i in window.localStorage){
@@ -34,7 +34,6 @@ function updatehistory(){
             var temp = JSON.parse( window.localStorage.getItem( i ) );
             
             if( i.indexOf(' ') == -1 ){
-                wholedates = '<div class="onedate">No History. <br>Are you sure You Saved your order?</div>';
                 continue;
             }
            
