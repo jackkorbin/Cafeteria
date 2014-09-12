@@ -345,11 +345,13 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     border-radius: 0px;
 }
 .bottom-tab-button-back#confirm{
-    width:100%;
-    padding-left:10%;
-    padding-right:10%;
+    width: 102%;
+    padding-left: 10%;
+    padding-right: 10%;
     height: 60px;
     line-height: 42px;
+    left: -3px;
+}
     
 }
 .bottom-tab-button-back span{
