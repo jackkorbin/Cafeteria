@@ -9,14 +9,18 @@ $(document).on('click','#hidehistorytab',function(){
     hidehistorytab();
 });
 
-$(document).on('click','.btn-history',function(){
+$(document).on('click','#btn-history',function(){
     showhistorytab();
     updatehistory();
 });
 
 $(document).on("click", "#clearhistory", function() {
-    clearhistory();
-    updatehistory();
+    var confrm = confirm('Erase all the History?');
+    if( confrm == true ){
+        clearhistory();
+        updatehistory();
+        hidehistorytab();
+    }
 });
     
 $(document).on("click", "#savehistory", function() {
@@ -25,7 +29,7 @@ $(document).on("click", "#savehistory", function() {
 });
 
 // CLEAR ALL -->    
-$(document).on("click", ".bottom-tab-button.clear", function() {
+$(document).on("click", "#clear", function() {
     clearall();
     hideselected();
 });
@@ -33,20 +37,20 @@ $(document).on("click", ".bottom-tab-button.clear", function() {
 
 // SELECTED BOX SLIDES -->    
 var togglebool = 1;    
-$(document).on("click", ".confirm", function(e) {
+$(document).on("click", "#confirm", function(e) {
     
-    if( booleanconfirm == 0 ){
-        e.preventDefault;
+////    if( booleanconfirm == 0 ){
+////        e.preventDefault;
+////    }
+//    else{
+    if( togglebool == 1 ){
+        showselected();
     }
     else{
-        if( togglebool == 1 ){
-            showselected();
-        }
-        else{
-            hideselected();
-            togglebool = 1;
-        }
+        hideselected();
+        togglebool = 1;
     }
+    
     
 });
 $(document).on("click", ".bottom-tab-button-back.back", function() {

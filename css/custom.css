@@ -27,7 +27,8 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 /*    box-shadow: 0px 1px 2px 00px #000;*/
     text-align: center;
     border-bottom: 4px solid #22313F;
-    background-color: #52B3D9;
+    background-color: #336E7B;
+    height: 60px;
 }
 .overlay i{
     position: relative;
@@ -40,7 +41,6 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     font-weight: bolder;
     letter-spacing: 2px;
     font-size: 28px;
-    text-shadow: 0 0 1px #336E7B;
 }
 
 
@@ -55,39 +55,18 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     text-align: center;
     box-shadow: none;
     border-radius: 0;
-    background-color:rgba(149, 165, 166,0.2);
     font-size: 22px;
     width:80%;
     
-    
-    transition: all .2s ease-in-out;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    
 }
 .main-content input:focus{
-    box-shadow: 0 0 2px 0px #000;
-    background-color:rgba(149, 165, 166,1);
-    color:#fff;
-    border-color: rgba(149, 165, 166,1);
-}
-.main-content input:focus::-webkit-input-placeholder { 
-    color: #ddd;
-    text-align:center;
+    box-shadow: 0 0 1px 0px #000;
+    
+    color:#000;
+    border-color: rgba(149, 165, 166,0.2);
+
 }
 
-.main-content input:focus:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #ddd; 
-    text-align:center;
-}
-.main-content input:focus::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: #ddd; 
-    text-align:center;
-}
-.main-content input:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color: #ddd; 
-    text-align:center;
-}
 
 
 
@@ -253,11 +232,16 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
 }
+
+
+/*
 .bottom-tab-button{
     padding:15px;
     width:33.333%;
     float:left;
 }
+*/
+/*
 .bottom-tab-button:hover{
     cursor: pointer;
 }
@@ -274,6 +258,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     background-color: rgba(31, 58, 147,0.2);
     border-top:4px solid rgba(31, 58, 147,1);
 }
+*/
 .selected-box-cont{
     position: absolute;
     width:100%;
@@ -351,22 +336,33 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 }
 .bottom-tab-button-back{
     
-    height: 60px;
+    
     width: 50%;
     position: relative;
     font-size: 18px;
-    line-height: 42px;
+    line-height: 35px;
     float: left;
     border-radius: 0px;
+}
+.bottom-tab-button-back#confirm{
+    width:100%;
+    padding-left:10%;
+    padding-right:10%;
+    height: 60px;
+    line-height: 42px;
+    
 }
 .bottom-tab-button-back span{
     top:3px;
 }
-.btn-history{
-    float:left;
-    font-size: 18px!important;
+.seperator{
+    
 }
-.btn-history .glyphicon{
+.topbuttons{
+    font-size: 18px!important;
+    font-weight: 100!important;
+}
+.topbuttons .glyphicon{
     font-size: 12px;
 }
 .overlay .title span{
@@ -380,7 +376,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     border-bottom:2px solid #6C7A89;
     padding:3px;
     margin-bottom: 10px;
-    
+    height: 50px;
     
 }
 .overlay.overlay-his span{
@@ -426,4 +422,12 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 .fooditem-date .glyphicon.glyphicon-chevron-down {
     margin: 0 6px;
     font-size: 12px;
+}
+
+#total {
+    color: #fff;
+    font-size: 20px;
+}
+#confirm{
+    color: #EEEEEE;
 }

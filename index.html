@@ -37,17 +37,19 @@
         
         <div class="main-box">
             <div class="overlay">
-                <span class="btn btn-success btn-history">
+                
+                <span class="btn btn-info topbuttons pull-left" id="clear">
                     <span class="glyphicon glyphicon-chevron-left"></span>
-                    History
+                    Clear All
                 </span>
-                <div class="title">
-<!--
-                    <i class="glyphicon glyphicon-cutlery"></i>
-                    <span> Easy Cafe </span>
--->
+                <span class="title">
                     <span>Cafetaria</span>
-                </div>
+                </span>
+                <span class="btn btn-danger topbuttons pull-right" id="btn-history">
+                    
+                    History
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </span>
                 
                 
             </div>
@@ -83,8 +85,8 @@
                     
                     <div class="main-content menu">
                         <div class="inputs-menu">
-                            <input type="text" class="form-control" id="name-menu" placeholder="Name">
-                            <input type="text" class="form-control" id="budget-menu" placeholder="Budget">
+                            <input type="text" class="form-control" id="name-menu" placeholder="Type Food item..">
+                            <input type="text" class="form-control" id="budget-menu" placeholder="Your budget?">
                         </div>
                         
                         <div class="selected-box-cont">
@@ -192,7 +194,7 @@
                                             Total
                                         </span>
                                         <span class="cost" id="cost">
-                                            780 Rs
+                                            420 Rs
                                         </span>
                                     </div>
                                     
@@ -253,18 +255,32 @@
 -->
             
         <div id="totalcost" class="total-cost">
+<!--
             <div class="clear bottom-tab-button">
-<!--                <span class="glyphicon glyphicon-fire"></span>-->
                 Clear all
             </div>
             <div class="total bottom-tab-button">
                 Total 0 Rs.
-                
             </div>
             <div class="confirm bottom-tab-button">
                 Confirm
-<!--                <span class="glyphicon glyphicon-forward"></span>-->
             </div>
+-->
+            
+<!--
+            <div class="total bottom-tab-button">
+                Total 0 Rs.
+            </div>
+-->
+            <div class="btn btn-danger bottom-tab-button-back" id="confirm">
+                <span>Total</span>
+                <span class="" id="total">0</span>
+                <span> Rs. </span>
+                
+                <span class="" id="confirm-text">Click to Confirm</span>
+            </div>
+            
+            
         </div>
             
         
@@ -272,11 +288,7 @@
         
         
         
-    </div>
-
-        
-    
-<script src="http://cafe:8080/target/target-script-min.js#123456789"></script>    
+    </div>   
     
     
 <script src="js/vendor/jquery-1.11.0.min.js"></script>
@@ -330,7 +342,7 @@ function coverttotime(t){
     return time;
 } 
     
-var booleanconfirm = 0; // HAS TO BE 1 for confirm to work;
+//var booleanconfirm = 0; // HAS TO BE 1 for confirm to work;
     
     
 /// UPDATE TOTAL : -->
@@ -395,24 +407,28 @@ $(document).on("change", ".quan", function() {
     }
     
     //texts += "TOTAL : Rs. " + total;
-    if( total > 0 ){
-        booleanconfirm = 1;
-    }
-    else{
-        booleanconfirm = 0;
-    }
+//    if( total > 0 ){
+//        booleanconfirm = 1;
+//    }
+//    else{
+//        booleanconfirm = 0;
+//    }
     
-    $('.total.bottom-tab-button').html(total+" Rs." );
+    $('#total').html(total);
     
+
     if( texts == '' ){
-        $('#what').html('No Items Selected!');
+        texts = '<div class="fooditem no-margin"><span class="name" id="name">Please Select Some Food Items By clicking on the Right of the Food item!</span></div>';
     }
-    else{
-        $('#what').html(texts);
-    }
+    
+    $('#what').html(texts);
+    $('#what').append('<div class="fooditem total-css"><span class="name" id="name">Total</span><span class="cost" id="cost">'+total+' Rs</span></div>');
+    
 });
     
 
+    
+    
 $(window).resize(function() { 
     responsiveness(); 
 });   
@@ -427,17 +443,23 @@ function responsiveness(){
     $('.history-box').css('height',showmenuheight + 59 +56+'px');
     $('#history').css('height',showmenuheight + -30 +'px');
     $('#history').scrollTop($('#history')[0].scrollHeight);
+    
+    if( $(window).width() < 400  ){
+        $('.title').css({'display':'none'});
+        $('#name-menu').attr("placeholder", "Type Food!");
+        $('#budget-menu').attr("placeholder", "Enter Budget");
+    }
+    
 }
     
 function showselected(){
     $('.selected-box-cont').css('display','block');
     $('.selected-box').animate({'left':'0px'},300);
-
-
-    //$('.confirm').html('<i class="glyphicon glyphicon-refresh spin"></i>');
+    
     setTimeout(function(){
-        $('.confirm').html('Back');
+        $('#confirm-text').html('Back');
     },100);
+    
     togglebool = 0;
 }
 function hideselected(){
@@ -446,13 +468,13 @@ function hideselected(){
         $('.selected-box-cont').css('display','none');
     },300);
 
-    $('.confirm').html('Confirm');
+    $('#confirm-text').html('Click to Confirm');
     togglebool = 1;
 }
 function clearall(){
     fetchmenu();
-    $('#what').html('');
-    $('.total.bottom-tab-button').html('Total 0 Rs.');
+    $('#what').html('<div class="fooditem no-margin"><span class="name" id="name">Please Select Some Food Items By clicking on the Right of the Food item!</span></div>');
+    $('#total').html(0);
     hideselected();
     arrayofselecteditems = [];
     booleanconfirm = 0;
