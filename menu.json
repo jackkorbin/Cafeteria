@@ -366,109 +366,109 @@ var menu = [
 //        'cost': "MRP"
 //    },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Fruit Juice', 
         'description':'', 
         'cost': 40
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Gulab Jamun', 
         'description':'', 
         'cost': 8
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Rasgulla', 
         'description':'', 
         'cost': 5
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Cold Coffee', 
         'description':'', 
         'cost': 35
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Extra Paav', 
         'description':'', 
         'cost': 9
     },
     {
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Extra Chola', 
         'description':'', 
         'cost': 23
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Cold Coffee with Ice Cream', 
         'description':'', 
         'cost': 46
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Extra Batura', 
         'description':'', 
         'cost': 12
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Extra Roti', 
         'description':'', 
         'cost': 9
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Extra Laccha Praatha', 
         'description':'', 
         'cost': 16
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Extra Raajma', 
         'description':'', 
         'cost': 23
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Extra Naan', 
         'description':'', 
         'cost': 20
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Extra Raaita', 
         'description':'', 
         'cost': 25
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Mix. Veg.', 
         'description':'', 
         'cost': 59
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Daal Maakhni', 
         'description':'', 
         'cost': 66
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Shahi Paneer', 
         'description':'', 
         'cost': 66
     },
     { 
-        'category':'Cakes/Pastry', 
+        'category':'Cakes And Pastry', 
         'name':'Extra Paapad', 
         'description':'', 
         'cost': 6
     },
     { 
-        'category':'Cakes/Pastry',
+        'category':'Cakes And Pastry',
         'name':'Veg. Pulao', 
         'description':'', 
         'cost': 25

@@ -490,20 +490,26 @@ function sortmenu(){
     
     
     //$('.fooditem').css('display','none');
+    $('.category').css({'display':'none'});
     
     for( var i=0; i<menu.length;i++ ){
         $('#fooditem'+i).css({'display':'none'});
+        
+        var id = menu[i].category.replace(/ /g,'');
+        
         
         if( (menu[i].cost <= budget || budget == '') && ( (menu[i].name.toLowerCase()).indexOf(name) != -1 || name == '' ) ){
             //text += '<div class="fooditem"><span class="name">'+menu[i].name+'</span><span class="cost">'+menu[i].cost+' Rs</span></div>';
             $('#fooditem'+i).css({'display':'block'});
             
+            $('#'+id).css({'display':'block'});
+            console.log(id);
         }
     }
     
 }
  
-var categorycolors = ['#3498DB','#F64747','#F22613','#DB0A5B','#26A65B','#F27935'];
+var categorycolors = ['#3498DB','#F64747','#F22613','#DB0A5B','#F27935','#26A65B'];
     
 function fetchmenu(){
     
@@ -512,12 +518,15 @@ function fetchmenu(){
     
     
     for( i=0; i < menu.length; i++ ){
-        $('.fooditem.total-css.category').css('background-color',categorycolors[ i%categorycolors.length ]);
+        //$('<style>').text('.color{ background-color:'+categorycolors[ i%categorycolors.length ]+';}').appendTo("head");
         if( menu[i].category != category ){
             category = menu[i].category;
-            text += '<div class="fooditem total-css category"><span class="name" id="name">'+category+'</span></div>';
+            var id = menu[i].category.replace(/ /g,'');
+            text += '<div class="category" id="'+id+'"><span>'+category+'</span></div>';
             
         }
+        
+        
         
         if( category == menu[i].category ){
             
@@ -538,7 +547,19 @@ function fetchmenu(){
     
     $('#show-menu').show(500);
     
+    changecategorycolor();
     
+    
+}
+
+function changecategorycolor(){
+    
+    for(var i=0; i<menu.length ; i++){
+        var j = Math.ceil( 500*Math.random() );
+        var id = menu[i].category.replace(/ /g,'');
+        $('#'+id).css('background-color',categorycolors[ j % categorycolors.length ]);
+    }
+
 }
 
 function options() {
