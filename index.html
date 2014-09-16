@@ -502,14 +502,29 @@ function sortmenu(){
     }
     
 }
-    
+ 
+var categorycolors = ['#3498DB','#F64747','#F22613','#DB0A5B','#26A65B','#F27935'];
     
 function fetchmenu(){
     
+    var category = '';
     var text = '';
+    
+    
     for( i=0; i < menu.length; i++ ){
+        $('.fooditem.total-css.category').css('background-color',categorycolors[ i%categorycolors.length ]);
+        if( menu[i].category != category ){
+            category = menu[i].category;
+            text += '<div class="fooditem total-css category"><span class="name" id="name">'+category+'</span></div>';
+            
+        }
         
-        text += '<div class="fooditem" id="fooditem'+i+'"><span class="name" id="name">' + menu[i].name + '</span>' +  options() + '<span class="cost" id="cost">'+ menu[i].cost +' Rs. </span></div>';
+        if( category == menu[i].category ){
+            
+            text += '<div class="fooditem" id="fooditem'+i+'"><span class="name" id="name">' + menu[i].name + '</span>' +  options() + '<span class="cost" id="cost">'+ menu[i].cost +' Rs. </span></div>';
+        }
+        
+        
     }
     
     
@@ -520,7 +535,6 @@ function fetchmenu(){
     $('#show-menu').html(text);
     
     responsiveness();
-    
     
     $('#show-menu').show(500);
     
