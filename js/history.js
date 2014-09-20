@@ -40,9 +40,11 @@ function updatehistory(){
 
         var date = i.split(" ");
         var time = coverttotime(date[4]);
-
-        w1 += '<div class="onedate">';
-        w1 += '<div class="fooditem fooditem-date">';
+        
+        id = i.replace(/[: ()+]/g,'');
+        w1 += '<div class="onedate" id="historytab'+id+'">';
+        w1 += '<div class="fooditem fooditem-date" id="color'+id+'">';
+        w1 += '<span class="glyphicon glyphicon-trash delhis" onclick=\'delhistory("'+i+'")\'></span>';
         w1 += '<span class="name" id="name">'+time+' '+date[2]+' '+date[1]+' '+date[3]+'</span><span class="cost" id="cost">';
         w2 += ' Rs</span><span class="glyphicon glyphicon-chevron-down icon"></span></div>'; // FOODITEM-date DIV closed
         w2 += '<div class="fooditem-subs-cont">';
@@ -68,6 +70,17 @@ function updatehistory(){
         wholedates = '<div class="fooditem no-margin"><span class="name" id="name">No Saved History!<br>Are you sure you clicked save button after confirming the menu?</span></div>';
     }
     $('#history').html(wholedates);
+    
+    changehistorycolor();
+}
+
+function changehistorycolor(){
+    for(var i in window.localStorage){
+        
+        var j = Math.ceil( 500*Math.random() );
+        var id = id = "color"+i.replace(/[: ()+]/g,'');
+        $('#'+id).css('background-color',categorycolors[ j % categorycolors.length ]);
+    }
 }
 
 function savehistory(){
@@ -89,4 +102,20 @@ function clearhistory(){
     arrayofselecteditems = [];
     
     
+}
+
+function delhistory(n){
+    
+    //
+    
+    var what = confirm('Delete this history?');
+    if( what ){
+        window.localStorage.removeItem(n);
+//        n = "historytab"+n.replace(/[: ()+]/g,'');
+//        $('#'+n).hide();
+        updatehistory();
+    }
+    else{
+        
+    }
 }

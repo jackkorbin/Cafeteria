@@ -28,10 +28,30 @@ $(document).on("click", "#savehistory", function() {
     clearall();
 });
 
+var showselitems = 0;
+$(document).on("click", "#showselecteditems", function() {
+    if( showselitems == 0 ){
+        showselecteditems();
+        showselitems = 1;
+        $('#showselecteditems span').html('Show All Items');
+    }
+    else{
+        showallitems();
+        showselitems = 0;
+        $('#showselecteditems span').html('Show Only Selected Items');
+    }
+});
+
 // CLEAR ALL -->    
 $(document).on("click", "#clear", function() {
-    clearall();
-    hideselected();
+    
+    if( historytab == 0 ){
+        clearall();
+        hideselected();
+    }
+    else{
+        hidehistorytab();
+    }
 });
 
 

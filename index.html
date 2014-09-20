@@ -38,16 +38,16 @@
         <div class="main-box">
             <div class="overlay">
                 
-                <span class="btn btn-info topbuttons pull-left" id="clear">
+                <span class="btn btn-success topbuttons pull-left" id="clear">
                     <span class="glyphicon glyphicon-chevron-left"></span>
-                    Clear All
+                    <g>Clear All</g>
                 </span>
                 <span class="title">
                     <span>Cafetaria</span>
                 </span>
                 <span class="btn btn-danger topbuttons pull-right" id="btn-history">
                     
-                    History
+                    <g>History</g>
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </span>
                 
@@ -89,7 +89,20 @@
                             <input type="text" class="form-control" id="budget-menu" placeholder="Your budget?">
                         </div>
                         
+                        <div class="btn btn-danger bottom-tab-button-back" id="showselecteditems">
+
+                            <span class="" id="">Show Only Selected Items</span>
+                        </div>
+                        
+                        <div class="loading-cont">
+                            <div class="loading">
+                                <span class="glyphicon glyphicon-refresh spin"></span>
+                            </div>
+                        </div>
+                        
+                        
                         <div class="selected-box-cont">
+                            
                             <div class="selected-box">
                                 
                                 <div id="what">
@@ -203,14 +216,15 @@
                                 
                                 
                                 
-                                <div class="btn btn-danger bottom-tab-button-back save" id="clearhistory">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                    Clear History
-                                </div>
                                 <div class="btn btn-warning bottom-tab-button-back back" id="hidehistorytab">
                                     <span class="glyphicon glyphicon-home"></span>
                                     Back
                                 </div>
+                                <div class="btn btn-danger bottom-tab-button-back save" id="clearhistory">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                    Clear History
+                                </div>
+                                
                                 
                                 
                             
@@ -273,6 +287,14 @@
             </div>
 -->
             <div class="btn btn-danger bottom-tab-button-back" id="confirm">
+                
+<!--
+                <span class="btn btn-info topbuttons pull-left" id="">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <g>Show Selected</g>
+                </span>
+-->
+                
                 <span>Total</span>
                 <span class="" id="total">0</span>
                 <span> Rs. </span>
@@ -320,13 +342,20 @@ $(window).load(function(){
 });
     
 //HISTORY TAB -->
+var historytab = 0;
     
 function showhistorytab(){
+    
     $('.history-box-cont').show(200);
+    historytab = 1;
+    $('#clear g').html('Home');
     
 }
 function hidehistorytab(){
+    
     $('.history-box-cont').hide(200);
+    historytab = 0;
+    $('#clear g').html('Clear All');
 }
 
 //updatehistory();
@@ -440,6 +469,7 @@ function responsiveness(){
     showmenuheight = parseInt($(document).innerHeight() - 180);
     $('#show-menu').css('height',showmenuheight+'px');
     $('.selected-box').css('height',showmenuheight + 56+'px');
+    $('.loading').css('height',showmenuheight + 56+'px');
     $('.history-box').css('height',showmenuheight + 59 +56+'px');
     $('#history').css('height',showmenuheight + -30 +'px');
     $('#history').scrollTop($('#history')[0].scrollHeight);
@@ -453,23 +483,27 @@ function responsiveness(){
 }
     
 function showselected(){
-    $('.selected-box-cont').css('display','block');
-    $('.selected-box').animate({'left':'0px'},300);
+    
+    $('.loading-cont').show();
     
     setTimeout(function(){
-        $('#confirm-text').html('Back');
-    },100);
+        $('.loading-cont').hide();
+        $('.selected-box-cont').show();
+    },400);
+    
+    $('#confirm-text').html('Back');
+    
     
     togglebool = 0;
 }
 function hideselected(){
-    $('.selected-box').animate({'left':'500px'},300);
-    setTimeout(function(){
-        $('.selected-box-cont').css('display','none');
-    },300);
+  
+    $('.selected-box-cont').hide();
+    $('.loading-cont').hide();
 
     $('#confirm-text').html('Click to Confirm');
     togglebool = 1;
+    
 }
 function clearall(){
     fetchmenu();
@@ -478,6 +512,8 @@ function clearall(){
     hideselected();
     arrayofselecteditems = [];
     booleanconfirm = 0;
+    $('#budget-menu').val('');
+    $('#name-menu').val('');
 }
     
     
@@ -488,8 +524,11 @@ function sortmenu(){
     var name = ($('#name-menu').val()).toLowerCase();
     var budget = $('#budget-menu').val();
     
+    showallitems();
+    showselitems = 0;
+    $('#showselecteditems span').html('Show Only Selected Items');
     
-    //$('.fooditem').css('display','none');
+    
     $('.category').css({'display':'none'});
     
     for( var i=0; i<menu.length;i++ ){
@@ -503,13 +542,13 @@ function sortmenu(){
             $('#fooditem'+i).css({'display':'block'});
             
             $('#'+id).css({'display':'block'});
-            console.log(id);
+
         }
     }
     
 }
  
-var categorycolors = ['#3498DB','#F64747','#F22613','#DB0A5B','#F27935','#26A65B'];
+var categorycolors = ['#F89406','#F64747','#00B16A','#674172','#F22613','#DB0A5B','#26A65B'];
     
 function fetchmenu(){
     
@@ -550,6 +589,28 @@ function fetchmenu(){
     changecategorycolor();
     
     
+}
+   
+
+function showselecteditems(){
+    var quantity = $('#show-menu .quan');
+    $('.category').css({'display':'none'});
+    
+    for( var i = 0; i < quantity.length; i++ ){
+        if (parseInt(quantity[i].value) == 0) {
+            $('#fooditem'+i).hide();
+            
+        }
+        else{
+            var id = menu[i].category.replace(/ /g,'');
+            $('#'+id).css({'display':'block'});
+        }
+    }
+}
+    
+function showallitems(){
+    $('.category').show();
+    $('.fooditem').show();
 }
 
 function changecategorycolor(){

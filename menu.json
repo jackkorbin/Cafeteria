@@ -119,6 +119,39 @@ var menu = [
         'description':'',
         'cost':44
     },
+    
+    { 
+        'category':'Tandoor Se', 
+        'name':'Naan', 
+        'description':'', 
+        'cost': 20
+    },
+
+    { 
+        'category':'Tandoor Se', 
+        'name':'Daal Maakhni', 
+        'description':'', 
+        'cost': 66
+    },
+    { 
+        'category':'Tandoor Se', 
+        'name':'Shahi Paneer', 
+        'description':'', 
+        'cost': 66
+    },
+
+    { 
+        'category':'Tandoor Se',
+        'name':'Veg. Pulao', 
+        'description':'', 
+        'cost': 25
+    },
+    { 
+        'category':'Tandoor Se', 
+        'name':'Mix. Veg.', 
+        'description':'', 
+        'cost': 59
+    },
     {
         'category':'Chinese And Continental',
         'name':'Veg Manchurian(DRY)',
@@ -294,184 +327,154 @@ var menu = [
         'cost': 9
     },
     { 
-        'category':'Ice Cream', 
+        'category':'IceCream and Drinks', 
         'name':'Vanilla', 
         'description':'', 
         'cost': 15
     },
     { 
-        'category':'Ice Cream', 
+        'category':'IceCream and Drinks', 
         'name':'Chocolate/Pineapple', 
         'description':'', 
         'cost': 20
     },
     { 
-        'category':'Ice Cream', 
+        'category':'IceCream and Drinks', 
         'name':'Kesar Pista/Butter Scotch', 
         'description':'', 
         'cost': 20
     },
     { 
-        'category':'Ice Cream', 
+        'category':'IceCream and Drinks', 
         'name':'Choco Chips', 
         'description':'', 
         'cost': 20
     },
     { 
-        'category':'Ice Cream', 
+        'category':'IceCream and Drinks', 
         'name':'Tutty Fruity', 
         'description':'', 
         'cost': 20
     },
     { 
-        'category':'Ice Cream', 
+        'category':'IceCream and Drinks', 
         'name':'Black Current', 
         'description':'', 
         'cost': 20
     },
     { 
-        'category':'Ice Cream', 
+        'category':'IceCream and Drinks', 
         'name':'Mango', 
         'description':'', 
         'cost': 20
     },
     { 
-        'category':'Ice Cream', 
-        'name':'Tea', 
-        'description':'', 
-        'cost': 6
-    },
-    { 
-        'category':'Ice Cream', 
-        'name':'Coffee', 
-        'description':'', 
-        'cost': 12
-    },
-    { 
-        'category':'Ice Cream', 
-        'name':'Lassi', 
-        'description':'', 
-        'cost': 23
-    },
-    { 
-        'category':'Ice Cream', 
-        'name':'Coldrink', 
-        'description':'', 
-        'cost': 15
-    },
-//    { 
-//        'category':'Ice Cream', 
-//        'name':'Mineral Water', 
-//        'description':'', 
-//        'cost': "MRP"
-//    },
-    { 
-        'category':'Cakes And Pastry', 
-        'name':'Fruit Juice', 
-        'description':'', 
-        'cost': 40
-    },
-    { 
-        'category':'Cakes And Pastry', 
-        'name':'Gulab Jamun', 
-        'description':'', 
-        'cost': 8
-    },
-    { 
-        'category':'Cakes And Pastry', 
-        'name':'Rasgulla', 
-        'description':'', 
-        'cost': 5
-    },
-    { 
-        'category':'Cakes And Pastry', 
+        'category':'IceCream and Drinks', 
         'name':'Cold Coffee', 
         'description':'', 
         'cost': 35
     },
     { 
-        'category':'Cakes And Pastry', 
+        'category':'IceCream and Drinks', 
+        'name':'Cold Coffee with IceCream', 
+        'description':'', 
+        'cost': 46
+    },
+    { 
+        'category':'IceCream and Drinks', 
+        'name':'Tea', 
+        'description':'', 
+        'cost': 6
+    },
+    { 
+        'category':'IceCream and Drinks', 
+        'name':'Hot Coffee', 
+        'description':'', 
+        'cost': 12
+    },
+    { 
+        'category':'IceCream and Drinks', 
+        'name':'Lassi', 
+        'description':'', 
+        'cost': 23
+    },
+    { 
+        'category':'IceCream and Drinks', 
+        'name':'Coldrink', 
+        'description':'', 
+        'cost': 15
+    },
+//    { 
+//        'category':'IceCream and Drinks', 
+//        'name':'Mineral Water', 
+//        'description':'', 
+//        'cost': "MRP"
+//    },
+    { 
+        'category':'IceCream and Drinks', 
+        'name':'Fruit Juice', 
+        'description':'', 
+        'cost': 40
+    },
+    { 
+        'category':'IceCream and Drinks', 
+        'name':'Gulab Jamun', 
+        'description':'', 
+        'cost': 8
+    },
+    { 
+        'category':'IceCream and Drinks', 
+        'name':'Rasgulla', 
+        'description':'', 
+        'cost': 5
+    },
+    { 
+        'category':'Extras', 
         'name':'Extra Paav', 
         'description':'', 
         'cost': 9
     },
     {
-        'category':'Cakes And Pastry', 
+        'category':'Extras', 
         'name':'Extra Chola', 
         'description':'', 
         'cost': 23
     },
     { 
-        'category':'Cakes And Pastry', 
-        'name':'Cold Coffee with Ice Cream', 
-        'description':'', 
-        'cost': 46
-    },
-    { 
-        'category':'Cakes And Pastry', 
+        'category':'Extras', 
         'name':'Extra Batura', 
         'description':'', 
         'cost': 12
     },
     { 
-        'category':'Cakes And Pastry', 
+        'category':'Extras', 
         'name':'Extra Roti', 
         'description':'', 
         'cost': 9
     },
     { 
-        'category':'Cakes And Pastry', 
+        'category':'Extras', 
         'name':'Extra Laccha Praatha', 
         'description':'', 
         'cost': 16
     },
     { 
-        'category':'Cakes And Pastry', 
+        'category':'Extras', 
         'name':'Extra Raajma', 
         'description':'', 
         'cost': 23
     },
     { 
-        'category':'Cakes And Pastry', 
-        'name':'Extra Naan', 
-        'description':'', 
-        'cost': 20
-    },
-    { 
-        'category':'Cakes And Pastry', 
+        'category':'Extras', 
         'name':'Extra Raaita', 
         'description':'', 
         'cost': 25
     },
     { 
-        'category':'Cakes And Pastry', 
-        'name':'Mix. Veg.', 
-        'description':'', 
-        'cost': 59
-    },
-    { 
-        'category':'Cakes And Pastry', 
-        'name':'Daal Maakhni', 
-        'description':'', 
-        'cost': 66
-    },
-    { 
-        'category':'Cakes And Pastry', 
-        'name':'Shahi Paneer', 
-        'description':'', 
-        'cost': 66
-    },
-    { 
-        'category':'Cakes And Pastry', 
+        'category':'Extras', 
         'name':'Extra Paapad', 
         'description':'', 
         'cost': 6
-    },
-    { 
-        'category':'Cakes And Pastry',
-        'name':'Veg. Pulao', 
-        'description':'', 
-        'cost': 25
     }
 
 ]

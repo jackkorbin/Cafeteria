@@ -272,10 +272,28 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     height:300px;
     position: relative;
     background-color: rgba(255,255,255,1);
-    left:500px;
     overflow-y: scroll;
 /*    border-radius:8px;*/
 /*    border:2px solid black;*/
+    color:black;
+    z-index: 1;
+}
+
+.loading-cont{
+    position: absolute;
+    width:100%;
+    max-width: 500px;
+    overflow: hidden;
+    top: 65px;
+    display:none;
+}
+.loading{
+    padding:10px;
+    padding:calc(50% - 15px);
+    height:300px;
+    position: relative;
+    background-color: rgba(255,255,255,1);
+    overflow-y: scroll;
     color:black;
     z-index: 1;
 }
@@ -351,6 +369,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     height: 60px;
     line-height: 42px;
     left: -3px;
+    color:#eee;
 }
     
 }
@@ -430,9 +449,7 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     color: #fff;
     font-size: 20px;
 }
-#confirm{
-    color: #EEEEEE;
-}
+
 .category{
     padding:10px 15px;
     text-align: center;
@@ -442,4 +459,21 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     margin-top: 13px;
     font-size: 18px;
     margin-bottom: 5px;
+}
+
+.delhis {
+    font-size: 13px;
+    margin-right:10px;
+    color: #F2F1EF;
+    border-right: 1px solid #eee;
+    padding-right: 10px;
+    cursor: pointer;
+}
+.bottom-tab-button-back#showselecteditems{
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    height: 50px;
+    line-height: 35px;
+    
 }
