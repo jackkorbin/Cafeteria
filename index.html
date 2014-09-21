@@ -467,7 +467,7 @@ $(window).resize(function() {
     
 function responsiveness(){
     showmenuheight = parseInt($(document).innerHeight() - 180);
-    $('#show-menu').css('height',showmenuheight+'px');
+    $('#show-menu').css('height',showmenuheight-50+'px');
     $('.selected-box').css('height',showmenuheight + 56+'px');
     $('.loading').css('height',showmenuheight + 56+'px');
     $('.history-box').css('height',showmenuheight + 59 +56+'px');
@@ -506,6 +506,12 @@ function hideselected(){
     
 }
 function clearall(){
+    
+    showallitems();
+    showselitems = 0;
+    $('#showselecteditems span').html('Show Only Selected Items');
+    
+    
     fetchmenu();
     $('#what').html('<div class="fooditem no-margin"><span class="name" id="name">Please Select Some Food Items By clicking on the Right of the Food item!</span></div>');
     $('#total').html(0);
@@ -548,7 +554,7 @@ function sortmenu(){
     
 }
  
-var categorycolors = ['#F89406','#F64747','#00B16A','#674172','#F22613','#DB0A5B','#26A65B'];
+var categorycolors = ['#F89406','#F64747','#00B16A','#674172','#DB0A5B'];
     
 function fetchmenu(){
     
@@ -562,14 +568,13 @@ function fetchmenu(){
             category = menu[i].category;
             var id = menu[i].category.replace(/ /g,'');
             text += '<div class="category" id="'+id+'"><span>'+category+'</span></div>';
-            
         }
         
         
         
         if( category == menu[i].category ){
             
-            text += '<div class="fooditem" id="fooditem'+i+'"><span class="name" id="name">' + menu[i].name + '</span>' +  options() + '<span class="cost" id="cost">'+ menu[i].cost +' Rs. </span></div>';
+            text += '<div class="fooditem" id="fooditem'+i+'"><i id="reset'+i+'" class="reset glyphicon glyphicon-remove-circle"></i><span class="name" id="name">' + menu[i].name + '</span>' +  options(i) + '<span class="cost" id="cost">'+ menu[i].cost +' Rs. </span></div>';
         }
         
         
@@ -613,18 +618,22 @@ function showallitems(){
     $('.fooditem').show();
 }
 
+    
 function changecategorycolor(){
     
+    
     for(var i=0; i<menu.length ; i++){
-        var j = Math.ceil( 500*Math.random() );
+        var j = Math.ceil( 500*Math.random() ) % categorycolors.length;
+        
         var id = menu[i].category.replace(/ /g,'');
-        $('#'+id).css('background-color',categorycolors[ j % categorycolors.length ]);
+        $('#'+id).css('background-color',categorycolors[ j ]);
+        
     }
-
+    
 }
 
-function options() {
-    return '<select class="quan" id="quan"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option></select>';
+function options(i) {
+    return '<select class="quan" id="quan'+i+'"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option></select>';
 }
     
     

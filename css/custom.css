@@ -118,6 +118,13 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
 .fooditem .name{
     
 }
+.fooditem i{
+    margin-right: 4px;
+    padding-right: 4px;
+    top: 3px;
+    border-right: 1px solid #eee;
+    cursor: pointer;
+}
 .fooditem .cost{
     float: right;
     margin-right: 10px;

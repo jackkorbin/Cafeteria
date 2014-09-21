@@ -25,10 +25,12 @@ function updatehistory(){
     
     var nohistory = 1;
     
-    
+    //sort(window.localStorage);
     
     for(var i in window.localStorage){
 
+        console.log(i);
+        
         i = $.trim(i);
 
         var temp = JSON.parse( window.localStorage.getItem( i ) );
@@ -74,14 +76,35 @@ function updatehistory(){
     changehistorycolor();
 }
 
+
+
 function changehistorycolor(){
+    
+    var previouscolorhis = -1;
+    
     for(var i in window.localStorage){
         
-        var j = Math.ceil( 500*Math.random() );
+        var j = checkcolorrepeat(previouscolorhis);
+        
         var id = id = "color"+i.replace(/[: ()+]/g,'');
-        $('#'+id).css('background-color',categorycolors[ j % categorycolors.length ]);
+        $('#'+id).css('background-color',categorycolors[j]);
+        
+        previouscolorhis = j;
     }
 }
+
+function checkcolorrepeat(p){
+    var j = Math.ceil( 500*Math.random() ) % categorycolors.length;
+    
+    if( j == p ){
+        j = checkcolorrepeat(p);
+    }
+    
+    return j;
+    
+}
+
+
 
 function savehistory(){
     

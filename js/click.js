@@ -28,6 +28,8 @@ $(document).on("click", "#savehistory", function() {
     clearall();
 });
 
+
+
 var showselitems = 0;
 $(document).on("click", "#showselecteditems", function() {
     if( showselitems == 0 ){
@@ -75,5 +77,14 @@ $(document).on("click", "#confirm", function(e) {
 });
 $(document).on("click", ".bottom-tab-button-back.back", function() {
     hideselected();
+});
+
+
+$(document).on("click", ".reset", function() {
+    
+    var id = $(this).attr('id');
+    var i = id.replace('reset','');
+    $('#quan'+i).val(0).trigger('change');
+    
 });
     
