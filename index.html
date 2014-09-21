@@ -214,6 +214,9 @@
 
                                 </div>
                                 
+                                <div id="total-money">
+                                </div>
+                                
                                 
                                 
                                 <div class="btn btn-warning bottom-tab-button-back back" id="hidehistorytab">
@@ -346,14 +349,20 @@ var historytab = 0;
     
 function showhistorytab(){
     
-    $('.history-box-cont').show(200);
-    historytab = 1;
-    $('#clear g').html('Home');
+    $('.loading-cont').show();
+    
+    setTimeout(function(){
+        $('.loading-cont').hide();
+        $('.history-box-cont').show();
+        historytab = 1;
+        $('#clear g').html('Home');
+        $('#history').scrollTop($('#history')[0].scrollHeight);
+    },400);
     
 }
 function hidehistorytab(){
     
-    $('.history-box-cont').hide(200);
+    $('.history-box-cont').hide();
     historytab = 0;
     $('#clear g').html('Clear All');
 }
@@ -471,7 +480,7 @@ function responsiveness(){
     $('.selected-box').css('height',showmenuheight + 56+'px');
     $('.loading').css('height',showmenuheight + 56+'px');
     $('.history-box').css('height',showmenuheight + 59 +56+'px');
-    $('#history').css('height',showmenuheight + -30 +'px');
+    $('#history').css('height',showmenuheight + -30 - 58 +'px');
     $('#history').scrollTop($('#history')[0].scrollHeight);
     
     if( $(window).width() < 400  ){
@@ -489,12 +498,14 @@ function showselected(){
     setTimeout(function(){
         $('.loading-cont').hide();
         $('.selected-box-cont').show();
+        $('#confirm-text').html('Back');
+        togglebool = 0;
     },400);
     
-    $('#confirm-text').html('Back');
     
     
-    togglebool = 0;
+    
+    
 }
 function hideselected(){
   

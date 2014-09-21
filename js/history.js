@@ -66,14 +66,20 @@ function updatehistory(){
     }
     
     
-    wholedates += '<div class="fooditem total-css"><span class="name" id="name">Total</span><span class="cost" id="cost">'+total+' Rs</span></div>';
+    
     
     if( nohistory == 1 ){
         wholedates = '<div class="fooditem no-margin"><span class="name" id="name">No Saved History!<br>Are you sure you clicked save button after confirming the menu?</span></div>';
     }
     $('#history').html(wholedates);
     
+    totaldiv = '<div class="fooditem total-css"><span class="name" id="name">Total</span><span class="cost" id="cost">'+total+' Rs</span></div>';
+    
+    $('#total-money').html(totaldiv);
+    
+    
     changehistorycolor();
+    $('#history').scrollTop($('#history')[0].scrollHeight);
 }
 
 
@@ -113,7 +119,8 @@ function savehistory(){
     }
     else {
         var currentTime = new Date();
-        window.localStorage.setItem(currentTime, JSON.stringify(arrayofselecteditems) );
+        var counter = window.localStorage.length + 1;
+        window.localStorage.setItem(  counter+currentTime, JSON.stringify(arrayofselecteditems) );
         alert('Saved!');
     }
     

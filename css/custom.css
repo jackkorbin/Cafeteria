@@ -299,10 +299,10 @@ src: url("fonts/Gotham/Gotham Narrow/Calibri.ttf") format("opentype");
     padding:calc(50% - 15px);
     height:300px;
     position: relative;
-    background-color: rgba(255,255,255,1);
+    background-color: rgba(255,255,255,0.5);
     overflow-y: scroll;
     color:black;
-    z-index: 1;
+    z-index: 10;
 }
 
 .history-box-cont{
